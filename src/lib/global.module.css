@@ -1,0 +1,220 @@
+/* Font Imports */
+@font-face {
+	font-family: 'Din';
+	src: url('/fonts/DINWebPro-Light.woff') format('woff');
+	font-weight: 100;
+	font-style: normal;
+}
+/* Din Regular */
+@font-face {
+	font-family: 'Din';
+	src: url('/fonts/DINWebPro.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+/* Din Regular Italic */
+@font-face {
+	font-family: 'Din';
+	src: url('/fonts/DINWeb-Ita.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+}
+/* Din Medium */
+@font-face {
+	font-family: 'Din';
+	src: url('/fonts/DINWeb-Medium.woff') format('woff');
+	font-weight: 200;
+	font-style: normal;
+}
+/* Din Medium Italic */
+@font-face {
+	font-family: 'Din';
+	src: url('/DINWeb-MediumIta.woff') format('woff');
+	font-weight: 200;
+	font-style: italic;
+}
+/* Din Bold */
+@font-face {
+	font-family: 'Din';
+	src: url('/fonts/DINWebPro-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+/* Din Bold Italic */
+@font-face {
+	font-family: 'Din';
+	src: url('/fonts/DINWeb-BoldIta.woff') format('woff');
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* Variables */
+body {
+  /* Base Colors */
+  --black: #000000;
+  --white: #FFFFFF;
+  --orange: #F26522;
+  --dark-orange: #D44D0D;
+  --blue: #006BA7;
+  --dark-blue: #00517E;
+  --green: #49A166;
+  --dark-green: #398050;
+  --purple: #813793;
+  /* --dark-purple: ; */
+  --pink: #E33699;
+  /* --dark-pink: ; */
+  --red: #F00F19;
+  --dark-red: #C40B14;
+
+  /* Grey */
+  --grey-700: #464646;
+  --gray-700: var(--grey-700);
+  --grey-500: #646464;
+  --gray-500: var(--grey-500);
+  --grey-300: #AAAAAA;
+  --gray-300: var(--grey-300);
+  --grey-100: #EEEEEE;
+  --gray-100: var(--grey-100);
+
+  /* System Colors */
+  --primary-color: var(--orange);
+  --primary-color-dark: var(--dark-orange);
+  --secondary-color: var(--blue);
+  --secondary-color-dark: var(--dark-blue);
+  --success-color: var(--green);
+  --success-color-dark: var(--dark-green);
+  --danger-color: var(--red);
+  --danger-color-dark: var(--dark-red);
+  --disabled-color: var(--grey-300);
+
+  /* Spacing */
+  --margin: 1.5rem;
+  --padding: 1.2rem;
+
+  /* Box Element Properties */
+  --border: 5px solid var(--black);
+  --radius: 5px;
+	--focus-border: 3px solid var(--blue);
+}
+
+html, body {
+	position: relative;
+	width: 100%;
+}
+
+body {
+	color: var(--black);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Din', sans-serif;
+	font-size: 10px;
+}
+
+h1 {
+	font-size: 2.6rem;
+	margin: 2rem auto 1.2rem;
+	font-weight: 700;
+	font-family: 'Din', sans-serif;
+}
+
+h2 {
+	font-size: 2.3rem;
+	margin: 2rem auto 1.2rem;
+	font-weight: 700;
+	font-family: 'Din', sans-serif;
+}
+
+h3 {
+	font-size: 2rem;
+	margin: 2rem auto 1.2rem;
+	font-weight: 700;
+	font-family: 'Din', sans-serif;
+}
+
+h4 {
+	font-size: 1.8rem;
+	margin: 2rem auto 1.2rem;
+	font-weight: 700;
+	font-family: 'Din', sans-serif;
+}
+
+h5 {
+	font-size: 1.7rem;
+	margin: 2rem auto 1.2rem;
+	font-weight: 700;
+	font-family: 'Din', sans-serif;
+}
+
+h6 {
+	font-size: 1.6rem;
+	margin: 2rem auto 1.2rem;
+	font-weight: 700;
+	font-family: 'Din', sans-serif;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.2rem;
+	margin: 0 auto 1.2rem;
+}
+
+a {
+	color: var(--blue);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: var(--blue);
+}
+
+/* reset link color for linkable box elements */
+article > a, article > a:hover, article > a:visited {
+	color: var(--black);
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
+
+button {
+	color: #333;
+	background-color: #f4f4f4;
+	outline: none;
+}
+
+button:disabled {
+	color: #999;
+}
+
+button:not(:disabled):active {
+	background-color: #ddd;
+}
+
+button:focus {
+	border-color: #666;
+}
+
+hr {
+	border: none;
+	border-top: var(--border);
+}
