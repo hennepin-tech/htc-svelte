@@ -31,7 +31,7 @@
 
   export const load = async () => {
     const components = await getComponents();
-    const imports = getImports(components);
+    const imports = await getImports(components);
 
     return {
       props: {
@@ -62,6 +62,6 @@
   h2 {
     border-bottom: 1px solid #000;
     width: max-content;
-    margin: 1.2rem auto 1.2rem 0;;
+    margin: 3rem auto 1.2rem 0;;
   }
 </style>

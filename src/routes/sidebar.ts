@@ -22,10 +22,10 @@ export const sidebar:SidebarItem[] = [
     type: 'parent',
     children: [
       {
-        anchor: 'accordian',
+        anchor: 'accordion',
         id: 1,
-        renderedComponent: 'Accordian',
-        text: 'Accordian',
+        renderedComponent: 'Accordion',
+        text: 'Accordion',
         type: 'child'
       },
       {
