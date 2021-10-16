@@ -1,5 +1,7 @@
 <script lang=ts>
-  export let props = {
+  import type { BannerProps } from '$types/Banner'
+
+  export let props:BannerProps = {
     message: 'HTC is closed due to incliment weather - click here for info.',
     link: '#'
    }
@@ -22,7 +24,8 @@
   .banner__message {
     display: block;
     color: var(--white);
-    font-size: calc(12px + 1vw);
+    font-size: calc(12px + .8vw);
+    font-weight: 700;
     text-align: center;
     margin: auto;
   }
