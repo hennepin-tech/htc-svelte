@@ -41,6 +41,7 @@
 >
   <button
     class="accordion__item__button"
+    class:accordion__item__button--expanded={expanded}
     bind:this={ref}
     type="button"
     aria-expanded={expanded}
@@ -80,9 +81,9 @@
     margin-bottom: 0;
     min-width: 300px;
     max-width: 600px; 
-    border-bottom: 2px solid var(--black); 
-    
-  }
+    border-bottom: 2px solid var(--black);
+    transition: all .3s ease-in-out .02s;
+  } 
   .accordion__item__button {
     background-color: var(--white);
     border: none;
@@ -91,13 +92,18 @@
     position: relative;
     margin-bottom: 0;
     border-radius: 0;
+    transition: outline .1s ease-in-out 0s;
   }
   .accordion__item__button:focus {
-    outline: 2px solid var(--black);
+    /* outline: 2px solid var(--black); */
+    background-color: var(--gray-100);
+  }
+  .accordion__item__button--expanded:focus {
+    /* outline: none; */
+    background-color: transparent;
   }
   .accordion__item__button:focus svg {
     transform: translateX(5px);
-    
   }
   .accordion__item__title {
     display: flex;
@@ -106,6 +112,7 @@
   }
   .accordion__item__title h2{
     margin:  2rem auto 1.2rem 50px;
+    font-size: 2rem;
   }
   .accordion__item__title svg {
     transition: transform .3s ease-in-out .02s

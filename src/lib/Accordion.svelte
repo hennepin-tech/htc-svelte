@@ -103,8 +103,6 @@
       });
     },
   });
-
-    
 </script>
 
 <ul class="accordion" data-accordion {...$$restProps}>
@@ -114,6 +112,7 @@
 </ul>
 
 <style>
-  
-
+  .accordion {
+    margin-bottom: 40px;
+  }
 </style>
