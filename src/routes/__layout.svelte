@@ -1,5 +1,6 @@
 <script lang=ts>
-  import { sidebar } from './sidebar';
+  import Button from '$lib/Button.svelte'
+  import { data } from './data';
   import { innerWidth } from '$lib/stores/innerWidth'
   let localWidth  
   $: innerWidth.set(localWidth)
@@ -11,18 +12,18 @@
   <aside>
     <ul>
       <li>
-        <a href="/">Home</a>
+        <a href="/">Getting Started</a>
         <hr/>
       </li>
-      {#each sidebar as {anchor, children, text} }
+      {#each data as parent }
         <li>
-          <a href={`/#${anchor}`}>{text}</a>
+          <a href={`/${parent.anchor}`}>{parent.text}</a>
         </li>
         <li>
           <ul>
-            {#each children as {anchor, text}}
+            {#each parent.children as {anchor, text}}
               <li>
-                <a href={`/#${anchor}`}>{text}</a>
+                <a href={`${parent.anchor}/#${anchor}`}>{text}</a>
               </li>
             {/each}
           </ul>
@@ -31,9 +32,32 @@
       {/each}
     </ul>
   </aside>
-  <main id="main-content">
-    <slot />
-  </main>
+  <div>  
+    <main id="main-content">
+      <h1>htc-svelte component library</h1>
+      <slot />
+    </main>
+    <footer>
+      <Button props = {{
+        behavior: 'link',
+        text: 'Github',
+        type: 'primary',
+        url: 'https://github.com/hennepin-tech'
+      }} />
+      <Button props = {{
+        behavior: 'link',
+        text: 'Repo',
+        type: 'primary',
+        url: 'https://github.com/hennepin-tech/htc-svelte'
+      }} />
+      <Button props = {{
+        behavior: 'link',
+        text: 'Website',
+        type: 'primary',
+        url: 'https://hennepin-tech.edu'
+      }} />
+    </footer>
+  </div>
 </div>
 
 <style global>
@@ -56,13 +80,13 @@
 
   main {
     padding: 1rem 2rem;
-    width: calc(100vw - 300px - 4rem);
+    width: calc(100vw - 300px - 6rem);
     margin-left: 300px;
   }
 
   aside {
     overflow-y: scroll;
-    scrollbar-color: red var(--sidebar-bg);
+    scrollbar-color: var(--blue) var(--sidebar-bg);
     background-color: var(--sidebar-bg);
     font-size: 1.2rem;
     height: 100vh;
@@ -88,6 +112,21 @@
 
   aside > ul > li > ul > li {
     font-weight: 300;
+  }
+
+  footer {
+    border-top: 2px solid var(--black);
+    min-height: 100px;
+    margin-left: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100vw - 315px - 4rem);
+    padding: 2rem;
+    margin-top: 40px;
+  }
+  footer a {
+    font-size: 1.2rem;
   }
 
 </style>

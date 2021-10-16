@@ -1,20 +1,16 @@
-// const propTypes = import.meta.globEager('../types/*.ts')
-
-// console.log(Array.from(Object.values(propTypes)))
-// console.log(typeof(propTypes))
-
 export type SidebarItem = {
   anchor: string,
+  description?: {text: string, snippet: any},
   id: number,
   renderedComponent?: string,
   text: string,
   type: string,
   children?: SidebarItem[],
-  // props?: Object,
+  props?: Object,
 
 }
 
-export const sidebar:SidebarItem[] = [
+export const data:SidebarItem[] = [
   {
     anchor: 'components',
     id: 1,
@@ -48,9 +44,12 @@ export const sidebar:SidebarItem[] = [
         renderedComponent: 'Button',
         text: 'Button',
         type: 'child',
-        // props: {
-
-        // }
+        props: {
+          text: 'Button',
+          behavior: 'button',
+          url: '#',
+          type: 'secondary'
+        }
       },
       {
         anchor: 'callout',
@@ -89,19 +88,52 @@ export const sidebar:SidebarItem[] = [
         type: 'child',
       },
       {
-        anchor: 'toast',
+        anchor: 'tabs',
         id: 10,
+        renderedComponent: 'Tabs',
+        text: 'Tabs',
+        type: 'child',
+      },
+      {
+        anchor: 'toast',
+        id: 11,
         renderedComponent: 'Toast',
         text: 'Toast',
         type: 'child',
       },
       {
         anchor: 'tooltip',
-        id: 11,
+        id: 12,
         renderedComponent: 'Tooltip',
         text: 'Tooltip',
         type: 'child',
       },
     ]
-  }
+  },
+  {
+    anchor: 'stores',
+    id: 2,
+    text: 'Stores',
+    type: 'parent',
+    children: [
+      {
+        anchor: 'innerWidth',
+        description: {
+          text: "In the global __layout.svelte component, simply import the store, create some local state that is bound to the innerWidth, and write a reactive statement that sets the local state to the store.",
+          snippet: new String(`
+            <script lang=ts>
+              import { innerWidth } from "htc-svelte/stores"
+              let localWidth  
+              $: innerWidth.set(localWidth)
+            </script>
+            
+            <svelte:window bind:innerWidth={localWidth}/>
+          `)
+        },
+        id: 1,
+        text: 'Inner Width',
+        type: 'child',
+      }
+    ]
+  },
 ]
