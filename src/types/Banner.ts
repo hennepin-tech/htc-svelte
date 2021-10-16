@@ -1,3 +1,4 @@
 export interface BannerProps {
-  message: string
+  message: string,
+  link: string
 }
