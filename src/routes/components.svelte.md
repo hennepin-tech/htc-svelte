@@ -3,15 +3,8 @@
   import Accordion from '$lib/Accordion.svelte'
   import Banner from '$lib/Banner.svelte'
   import Button from '$lib/Button.svelte'
+  import Callout from '$lib/Callout.svelte'
   import Modal, { modalOpen, toggle } from '$lib/Modal.svelte'
-  // import { modal } from '$lib/stores/modal'
-
-  // const { open } = getContext('modal')
-  // let open = false
-  
-  // $: modal.set(open)
-
-  // $: console.log($modal)
 </script>
 
   ## Components
@@ -19,7 +12,9 @@
   <hr/>
 
   <!-- Accordion start -->
-  ### Accordion
+  <section id="accordion">
+
+  <h3> Accordion </h3>
 
   An accordion should be used when a large amount of information needs to be displayed on a single page. The accordian is built to parse an array of object, each containing a title and a content array of [Portable Text](https://github.com/portabletext/portabletext) blocks. 
 
@@ -56,10 +51,15 @@
   #### Component
 
   <Accordion />
+  </section>
   <!-- Accordion end -->
 
+  <hr/>
+  
   <!-- Banner start -->
-  ### Banner
+  <section id="banner">
+
+  <h3> Banner </h3>
 
   The banner is placed at the very top of the homepage when an urgent message needs to be communicated to users & stakeholders.
 
@@ -67,7 +67,7 @@
 
   | Prop    | Type   | Default                                                       |
   |---------|--------|---------------------------------------------------------------|
-  | message | string | HTC is closed due to incliment weather - click here for info. |
+  | message | string | HTC is closed due to inclement weather - click here for info. |
   | link    | string | #                                                             |
 
   #### Usage
@@ -86,10 +86,15 @@
   #### Component
 
   <Banner />
+  </section>
   <!-- Banner end -->
 
+  <hr/>
+
   <!-- Button start -->
-  ### Button
+  <section id="button">
+  
+  <h3> Button </h3>
 
   The banner is placed at the very top of the homepage when an urgent message needs to be communicated to users & stakeholders.
 
@@ -108,7 +113,7 @@
   <script>
     import Button from 'htc-svelte'
 
-    let props = {
+    let buttonProps = {
       behavior: 'link',
       text: 'Go Home',
       url: 'https://hennepintech.edu',
@@ -116,7 +121,7 @@
     }
   </script>
 
-  <Button {props}/>
+  <Button props={buttonProps}/>
   ```
 
   #### Component
@@ -127,11 +132,63 @@
       url: 'https://hennepintech.edu',
       type: 'primary'
     }}/>
+  </section>
   <!-- Button end -->
 
+  <hr/>
+
+  <!-- Callout start -->
+  <section id="callout">
+
+  <h3> Callout </h3>
+
+  #### Props
+
+  | Prop     | Type   | Default                                                      |
+  |----------|--------|--------------------------------------------------------------|
+  | image    | string | 'https://hennepintech.edu/_images/home/1-500x500-ONLINE.jpg' |
+  | imageAlt | string | undefined                                                    |
+  | path     | string | '/'                                                          |
+  | title    | string | 'Learn More'                                                 |
+
+  #### Usage
+
+  ```svelte
+  <script>
+    import Callout from 'htc-svelte'
+
+    let calloutProps = {
+      // A URL string
+      image: 'https://hennepintech.edu/_images/home/1-500x500-ONLINE.jpg',
+      // Alternative text is always required!
+      imageAlt: 'A glasses wearing student, sitting in front of their computer, smiling.',
+      // Either a local path in the Svelte app, or an external URL
+      path: '/',
+      title: 'Learn More'
+    }
+
+  </script>
+
+  <Callout props={calloutProps}/>
+  ```
+
+  #### Component
+
+  <Callout props={{ 
+    image: 'https://hennepintech.edu/_images/home/1-500x500-ONLINE.jpg',
+    imageAlt: 'A glasses wearing student, sitting in front of their computer, smiling.',
+    path: '/',
+    title: 'Learn More'
+  }}/>
+  </section>
+  <!-- Callout end -->
+
+  <hr/>
 
   <!-- Modal start -->
-  ### Modal
+  <section id="modal">
+  
+<h3> Modal </h3>
 
   #### Props
 
@@ -173,8 +230,10 @@
       type: 'primary'
     }} on:click={() => toggle($modalOpen)}/>
   </Modal>
-  
+  </section>
   <!-- Modal end -->
+
+  <hr/>
 
 <style>
   table {

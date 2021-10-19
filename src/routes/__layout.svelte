@@ -1,6 +1,13 @@
 <script lang=ts>
+  import { scrollto } from 'svelte-scrollto'
   import Button from '$lib/Button.svelte'
   import { data } from './data';
+  import * as animateScroll from "svelte-scrollto";
+
+  animateScroll.setGlobalOptions({
+    offset: -30, 
+  })
+
   import { innerWidth } from '$lib/stores/innerWidth'
   let localWidth  
   $: innerWidth.set(localWidth)
@@ -23,7 +30,9 @@
           <ul>
             {#each parent.children as {anchor, text}}
               <li>
-                <a href={`${parent.anchor}/#${anchor}`}>{text}</a>
+                <a href={`${parent.anchor}/#${anchor}`} use:scrollto={`#${anchor}`}>
+                  {text}
+                </a>
               </li>
             {/each}
           </ul>
