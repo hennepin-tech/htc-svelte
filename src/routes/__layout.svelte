@@ -39,6 +39,10 @@
         </li>
         <hr/>
       {/each}
+      <li>
+        <a href="/globals">Globals</a>
+        <hr/>
+      </li>
     </ul>
   </aside>
   <div>  
