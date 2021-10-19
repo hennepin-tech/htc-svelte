@@ -2,7 +2,7 @@
   import type { BannerProps } from '$types/Banner'
 
   export let props:BannerProps = {
-    message: 'HTC is closed due to incliment weather - click here for info.',
+    message: 'HTC is closed due to inclement weather - click here for info.',
     link: '#'
    }
 </script>
@@ -17,7 +17,7 @@
     width: 100%;
     max-height: 50px;
     margin: 0;
-    padding: 1.2rem;
+    padding: 0.8rem 1.2rem;
     background-color: var(--orange);
   }
 
