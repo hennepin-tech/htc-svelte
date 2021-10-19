@@ -2,10 +2,10 @@
   import type { ButtonProps } from '$types/Button'
 
   export let props:ButtonProps = {
-    text: 'Button',
     behavior: 'link',
+    text: 'Button',
+    type: 'primary',
     url: '#',
-    type: 'primary'
   }
 </script>
 
@@ -42,6 +42,8 @@
 
 <style>
   .button {
+    display: block;
+    width: max-content;
     margin: var(--margin);
     padding: 10px 16px;
     border-radius: var(--radius);
@@ -56,6 +58,7 @@
   }
   .button:hover {
     cursor: pointer;
+    text-decoration: none;
   }
 
   /* Primary */
