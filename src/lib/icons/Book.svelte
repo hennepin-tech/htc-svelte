@@ -10,6 +10,7 @@
 
 {#if props.size === 's'}
   <svg xmlns="http://www.w3.org/2000/svg" width="14.236" height="22.188" viewBox="0 0 14.236 22.188">
+    <title>Book</title>
     <g id="Group_12" data-name="Group 12" transform="translate(-225.958 -148.319)">
       <g id="Group_9" data-name="Group 9" transform="translate(227.146 149.507)">
         <path id="Path_2" data-name="Path 2" d="M0,9.841H14.1L17.143,0,14.1,9.841Z" transform="translate(2.207 17.175) rotate(-90)" fill="none" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={props.stroke}/>
@@ -29,6 +30,7 @@
   </svg>
 {:else if props.size === 'm'}
   <svg xmlns="http://www.w3.org/2000/svg" width="20.807" height="32.735" viewBox="0 0 20.807 32.735">
+    <title>Book</title>
     <g id="Group_25" data-name="Group 25" transform="translate(-225.672 -148.022)">
       <g id="Group_9" data-name="Group 9" transform="translate(227.157 149.507)">
         <path id="Path_2" data-name="Path 2" d="M0,14.762H21.156L25.714,0,21.156,14.762Z" transform="translate(3.31 25.763) rotate(-90)" fill="none" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={props.stroke}/>
@@ -48,6 +50,7 @@
   </svg>
 {:else if props.size === 'l'}
   <svg xmlns="http://www.w3.org/2000/svg" width="27.422" height="43.282" viewBox="0 0 27.422 43.282">
+    <title>Book</title>
     <g id="Group_26" data-name="Group 26" transform="translate(-225.386 -147.725)">
       <g id="Group_9" data-name="Group 9" transform="translate(227.168 149.507)">
         <path id="Path_2" data-name="Path 2" d="M0,19.718H28.2L34.275,0,28.2,19.718Z" transform="translate(4.422 34.34) rotate(-90)" fill="none" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={props.stroke}/>

@@ -10,6 +10,7 @@
 
 {#if props.size === 's'}
 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21">
+  <title>Person</title>
   <g id="Group_5" data-name="Group 5" transform="translate(-226.5 -95)">
     <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(231 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
       <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
@@ -21,6 +22,7 @@
 
 {:else if props.size === 'm'}
   <svg xmlns="http://www.w3.org/2000/svg" width="32.5" height="31.25" viewBox="0 0 32.5 31.25">
+    <title>Person</title>
     <g id="Group_23" data-name="Group 23" transform="translate(-226.25 -95)">
       <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(233 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
         <ellipse cx="9.837" cy="9.587" rx="9.837" ry="9.587" stroke="none"/>
@@ -31,6 +33,7 @@
   </svg>
 {:else if props.size === 'l'}
   <svg xmlns="http://www.w3.org/2000/svg" width="43" height="41.5" viewBox="0 0 43 41.5">
+    <title>Person</title>
     <g id="Group_24" data-name="Group 24" transform="translate(-226 -95)">
       <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(234.833 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
         <ellipse cx="13.117" cy="12.783" rx="13.117" ry="12.783" stroke="none"/>

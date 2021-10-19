@@ -10,6 +10,7 @@
 
 {#if props.size === 's'}
   <svg xmlns="http://www.w3.org/2000/svg" width="21.414" height="21.414" viewBox="0 0 21.414 21.414">
+    <title>Search</title>
     <g id="Group_7" data-name="Group 7" transform="translate(-227 -95)">
       <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(227 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
         <ellipse cx="9.06" cy="9.325" rx="9.06" ry="9.325" stroke="none"/>
@@ -20,6 +21,7 @@
   </svg>
 {:else if props.size === 'm'}
   <svg xmlns="http://www.w3.org/2000/svg" width="31.768" height="31.768" viewBox="0 0 31.768 31.768">
+    <title>Search</title>
     <g id="Group_21" data-name="Group 21" transform="translate(-227 -95)">
       <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(227 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
         <ellipse cx="13.587" cy="13.985" rx="13.587" ry="13.985" stroke="none"/>
@@ -30,6 +32,7 @@
   </svg>
 {:else if props.size === 'l'}
   <svg xmlns="http://www.w3.org/2000/svg" width="42.121" height="42.121" viewBox="0 0 42.121 42.121">
+    <title>Search</title>
     <g id="Group_22" data-name="Group 22" transform="translate(-227 -95)">
       <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(227 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
         <ellipse cx="18.139" cy="18.663" rx="18.139" ry="18.663" stroke="none"/>

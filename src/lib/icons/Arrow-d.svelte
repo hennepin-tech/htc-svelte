@@ -10,6 +10,7 @@
 
 {#if props.size === 's'}
   <svg xmlns="http://www.w3.org/2000/svg" width="22.744" height="22.372" viewBox="0 0 22.744 22.372">
+    <title>Arrow Down</title>
     <g id="Group_1" data-name="Group 1" transform="translate(-124.128 -98.862)">
       <line id="Line_1" data-name="Line 1" y2="20" transform="translate(135.5 99.862)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
       <line id="Line_2" data-name="Line 2" x1="10" y2="6" transform="translate(135.5 113.862)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
@@ -18,6 +19,7 @@
   </svg>
 {:else if props.size === 'm'}
   <svg xmlns="http://www.w3.org/2000/svg" width="33.938" height="32.965" viewBox="0 0 33.938 32.965">
+    <title>Arrow Down</title>
     <g id="Group_13" data-name="Group 13" transform="translate(-123.531 -98.612)">
       <line id="Line_1" data-name="Line 1" y2="30" transform="translate(140.5 99.862)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
       <path id="Path_6" data-name="Path 6" d="M15.254,0,0,9.153" transform="translate(140.5 120.709)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
@@ -26,6 +28,7 @@
   </svg>
 {:else if props.size === 'l'}
   <svg xmlns="http://www.w3.org/2000/svg" width="44.117" height="43.558" viewBox="0 0 44.117 43.558">
+    <title>Arrow Down</title>
     <g id="Group_15" data-name="Group 15" transform="translate(-123.188 -98.362)">
       <line id="Line_1" data-name="Line 1" y2="40" transform="translate(145.246 99.862)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
       <path id="Path_6" data-name="Path 6" d="M20,0,0,12" transform="translate(145.246 127.861)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
