@@ -4,7 +4,7 @@
 <script lang=ts>
   import { fade, fly } from 'svelte/transition'
   import { backOut } from 'svelte/easing'
-  import { innerWidth } from '../stores/innerWidth'
+  import { innerWidth } from '../../stores/innerWidth'
   import Banner from '$lib/Banner.svelte'
 
   $:({ subNav, mainNav } = data)
@@ -74,7 +74,16 @@
       <ul>
         {#each mainNav as {label, links}}
           <li class="main__nav__item">
-            <button class="main__nav__item__button" on:click={() => openDropdown(label)}>{label}</button>
+            <button 
+              class="main__nav__item__button" 
+              class:main__nav__item__button--open={dropdownOpen && dropdownOpenLabel === label} 
+              on:click={() => openDropdown(label)}
+            >
+            <span class="main__nav__item__button__icon">
+
+            </span>
+              {label}
+            </button>
             {#if dropdownOpen && dropdownOpenLabel === label}
               <ul class="main__nav__item__dropdown" transition:fade={{delay: 0, duration: 250, easing: backOut}}>
                 {#each links as {path, text}}
@@ -171,15 +180,48 @@
 
   .main__nav__item__dropdown {
     position: absolute;
-    top: 40px;
+    top: 47px;
     right: 0;
     box-shadow: var(--corner-shadow);
+    border: var(--border);
     font-size: 1.2rem;
-    padding: .8em .4em;
+    padding: 1em .9em;
     background-color: var(--white);
     border-radius: var(--radius);
     width: max-content;
   }
+
+  .main__nav__item__dropdown__item:last-child {
+    margin-bottom: 0;
+  }
+
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  /* .main__nav__item__button:before {
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s; 
+  }
+  .main__nav__item__button:hover.main__nav__item__button:before, .main__nav__item__button--open:before {
+    opacity: 100%;
+    content: '↓';
+    margin-right: 5px;
+    font-size: 17px;
+    
+  }
+
+  .main__nav__item__button:hover.main__nav__item__button--open:before,  .main__nav__item__button--open:before {
+    opacity: 100%;
+    position: absolute;
+    left: 9px;
+    bottom: -6px;
+    
+  }
+  .main__nav__item__button--open {
+    padding-left: 31px;
+  } */
 
   .main__nav__item__button {
     background-color: transparent;
@@ -187,6 +229,7 @@
     border-radius: var(--radius);
     font-size: 1.3rem;
     margin: 0;
+    transition: opacity 0.1s ease-in-out 0s;
   }
 
   .main__nav__item__button:hover {
