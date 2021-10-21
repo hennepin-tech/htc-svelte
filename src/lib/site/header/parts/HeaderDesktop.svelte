@@ -270,7 +270,7 @@
     right: 45px;
   }
   .main__nav__item__dropdown__item > a { padding: 5px; }
-  .main__nav__item__dropdown__item > a:hover {
+  .main__nav__item__dropdown__item > a:hover, .main__nav__item__dropdown__item > a:focus {
     background-color: var(--blue);
     color: var(--white);
     text-decoration: none;
