@@ -1,10 +1,10 @@
 <script lang=ts>
-  import type { AccordianProps } from "$types/Accordion";
-  import AccordianItem from "./AccordianItem.svelte";
+  import type { AccordionProps } from "$types/Accordion";
+  import AccordianItem from "./AccordionItem.svelte";
   import { setContext } from "svelte";
   import { writable } from "svelte/store";
   
-  export let props:AccordianProps = {
+  export let props:AccordionProps = {
     multiselect: false,
     data: [
       {
