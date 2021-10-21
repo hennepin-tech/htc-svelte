@@ -7,7 +7,9 @@ export { default as Banner } from './Banner.svelte'
 export { default as Button } from './Button.svelte'
 export { default as Callout } from './Callout.svelte'
 export { default as Modal } from './Modal.svelte'
+  export { toggleModal, modalOpen } from './Modal.svelte'
 export { default as Toast } from './Toast.svelte'
+export { toggleToast, toastOpen } from './Toast.svelte'
 
 // Site Components
 export { default as Header } from './site/header/Header.svelte'
