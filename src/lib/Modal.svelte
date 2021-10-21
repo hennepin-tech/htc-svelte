@@ -9,11 +9,19 @@
 <script lang=ts>
   import { prevent_default } from 'svelte/internal';
   import type { ModalProps } from '$types/Modal'
+  import { onMount } from 'svelte'
   
   export let props:ModalProps = {
+    onMount: false,
     type: 'simple',
     theme: 'black'
   }
+
+  onMount(() => {
+    if(props.onMount){
+      modalOpen.set(true)
+    } else { return }
+  })
   
 </script>
 
@@ -22,8 +30,21 @@
   <div class="modal__overlay" on:click={() => toggleModal($modalOpen)}>
   </div>
   <div class="modal" on:click={prevent_default}>
-    <header class="modal__header">
-      <slot name="heading"/>
+
+    {#if props.type === 'header'}
+      <header class="modal__header">
+        <slot name="heading"/>
+        <button 
+          class="modal__close" 
+          on:click={() => toggleModal($modalOpen)} 
+          tabindex="0"
+        >
+          <Close props={{size: 's', stroke: '3.5', color: '#ffffff'}}/>
+        </button>
+      </header>
+    {/if}
+
+    {#if props.type === 'simple'}
       <button 
         class="modal__close" 
         on:click={() => toggleModal($modalOpen)} 
@@ -31,7 +52,8 @@
       >
         <Close props={{size: 's', stroke: '3.5', color: '#ffffff'}}/>
       </button>
-    </header>
+    {/if}
+    
     <slot name="content"/>
   </div>
 {/if}
