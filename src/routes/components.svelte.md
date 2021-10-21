@@ -4,7 +4,8 @@
   import Banner from '$lib/Banner.svelte'
   import Button from '$lib/Button.svelte'
   import Callout from '$lib/Callout.svelte'
-  import Modal, { modalOpen, toggle } from '$lib/Modal.svelte'
+  import Modal, { modalOpen, toggleModal } from '$lib/Modal.svelte'
+  import Toast, { toastOpen, toggleToast } from '$lib/Toast.svelte'
 </script>
 
   ## Components
@@ -17,6 +18,10 @@
   <h3> Accordion </h3>
 
   An accordion should be used when a large amount of information needs to be displayed on a single page. The accordian is built to parse an array of object, each containing a title and a content array of [Portable Text](https://github.com/portabletext/portabletext) blocks. 
+
+  #### Component
+
+  <Accordion />
 
   #### Props
 
@@ -47,10 +52,6 @@
     }}
   />
   ```
-
-  #### Component
-
-  <Accordion />
   </section>
   <!-- Accordion end -->
 
@@ -62,6 +63,10 @@
   <h3> Banner </h3>
 
   The banner is placed at the very top of the homepage when an urgent message needs to be communicated to users & stakeholders.
+
+  #### Component
+
+  <Banner />
 
   #### Props
 
@@ -82,10 +87,6 @@
 
   <Banner props={{ message, link }}/>
   ```
-
-  #### Component
-
-  <Banner />
   </section>
   <!-- Banner end -->
 
@@ -97,6 +98,18 @@
   <h3> Button </h3>
 
   The banner is placed at the very top of the homepage when an urgent message needs to be communicated to users & stakeholders.
+
+  #### Component
+
+  <Button props={{
+      behavior: 'link',
+      layout: 'block',
+      outline: false,
+      size: 'm',
+      text: 'Go Home',
+      type: 'primary',
+      url: 'https://hennepintech.edu',
+    }}/>
 
   #### Props
 
@@ -126,18 +139,6 @@
 
   <Button props={buttonProps}/>
   ```
-
-  #### Component
-
-  <Button props={{
-      behavior: 'link',
-      layout: 'block',
-      outline: false,
-      size: 'm',
-      text: 'Go Home',
-      type: 'primary',
-      url: 'https://hennepintech.edu',
-    }}/>
   </section>
   <!-- Button end -->
 
@@ -147,6 +148,15 @@
   <section id="callout">
 
   <h3> Callout </h3>
+
+  #### Component
+
+  <Callout props={{ 
+    image: 'https://hennepintech.edu/_images/home/1-500x500-ONLINE.jpg',
+    imageAlt: 'A glasses wearing student, sitting in front of their computer, smiling.',
+    path: '/',
+    title: 'Learn More'
+  }}/>
 
   #### Props
 
@@ -177,15 +187,6 @@
 
   <Callout props={calloutProps}/>
   ```
-
-  #### Component
-
-  <Callout props={{ 
-    image: 'https://hennepintech.edu/_images/home/1-500x500-ONLINE.jpg',
-    imageAlt: 'A glasses wearing student, sitting in front of their computer, smiling.',
-    path: '/',
-    title: 'Learn More'
-  }}/>
   </section>
   <!-- Callout end -->
 
@@ -194,7 +195,22 @@
   <!-- Modal start -->
   <section id="modal">
   
-<h3> Modal </h3>
+  <h3> Modal </h3>
+
+  #### Component
+
+  <Modal >
+    <h2 slot="heading">The Heading</h2>
+    <p slot="content">This is a popup!</p>
+    <Button slot="trigger" props={{
+      behavior: 'button',
+      layout: 'block',
+      outline: false,
+      size: 'm',
+      text: 'Open Modal',
+      type: 'primary'
+    }} on:click={() => toggleModal($modalOpen)}/>
+  </Modal>
 
   #### Props
 
@@ -209,7 +225,7 @@
 
   ```svelte
   <script>
-    import Button, Modal, { toggle, modalOpen} from 'htc-svelte'
+    import Button, Modal, { toggleModal, modalOpen } from 'htc-svelte'
 
     let buttonProps = {
       behavior: 'button',
@@ -224,24 +240,9 @@
   <Modal >
     <h2 slot="heading">The Heading</h2>
     <p slot="content">This is a popup!</p>
-    <Button slot="trigger" props={buttonProps} on:click={() => toggle($modalOpen)}/>
+    <Button slot="trigger" props={buttonProps} on:click={() => toggleModal($modalOpen)}/>
   </Modal>
   ```
-
-  #### Component
-
-  <Modal >
-    <h2 slot="heading">The Heading</h2>
-    <p slot="content">This is a popup!</p>
-    <Button slot="trigger" props={{
-      behavior: 'button',
-      layout: 'block',
-      outline: false,
-      size: 'm',
-      text: 'Open Modal',
-      type: 'primary'
-    }} on:click={() => toggle($modalOpen)}/>
-  </Modal>
   </section>
   <!-- Modal end -->
 

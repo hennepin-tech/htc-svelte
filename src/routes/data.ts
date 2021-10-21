@@ -24,13 +24,13 @@ export const data:SidebarItem[] = [
         text: 'Accordion',
         type: 'child'
       },
-      {
-        anchor: 'article',
-        id: 2,
-        renderedComponent: 'Article',
-        text: 'Article',
-        type: 'child'
-      },
+      // {
+      //   anchor: 'article',
+      //   id: 2,
+      //   renderedComponent: 'Article',
+      //   text: 'Article',
+      //   type: 'child'
+      // },
       {
         anchor: 'banner',
         id: 3,
@@ -58,21 +58,21 @@ export const data:SidebarItem[] = [
         text: 'Callout',
         type: 'child',
       },
-      {
-        anchor: 'card',
-        id: 6,
-        renderedComponent: 'Card',
-        text: 'Card',
-        type: 'child',
-      },
+      // {
+      //   anchor: 'card',
+      //   id: 6,
+      //   renderedComponent: 'Card',
+      //   text: 'Card',
+      //   type: 'child',
+      // },
       
-      {
-        anchor: 'form',
-        id: 7,
-        renderedComponent: 'Form',
-        text: 'Form',
-        type: 'child',
-      },
+      // {
+      //   anchor: 'form',
+      //   id: 7,
+      //   renderedComponent: 'Form',
+      //   text: 'Form',
+      //   type: 'child',
+      // },
       {
         anchor: 'modal',
         id: 8,
@@ -80,20 +80,20 @@ export const data:SidebarItem[] = [
         text: 'Modal',
         type: 'child',
       },
-      {
-        anchor: 'navigation',
-        id: 9,
-        renderedComponent: 'Navigation',
-        text: 'Navigation',
-        type: 'child',
-      },
-      {
-        anchor: 'tabs',
-        id: 10,
-        renderedComponent: 'Tabs',
-        text: 'Tabs',
-        type: 'child',
-      },
+      // {
+      //   anchor: 'navigation',
+      //   id: 9,
+      //   renderedComponent: 'Navigation',
+      //   text: 'Navigation',
+      //   type: 'child',
+      // },
+      // {
+      //   anchor: 'tabs',
+      //   id: 10,
+      //   renderedComponent: 'Tabs',
+      //   text: 'Tabs',
+      //   type: 'child',
+      // },
       {
         anchor: 'toast',
         id: 11,
@@ -101,13 +101,13 @@ export const data:SidebarItem[] = [
         text: 'Toast',
         type: 'child',
       },
-      {
-        anchor: 'tooltip',
-        id: 12,
-        renderedComponent: 'Tooltip',
-        text: 'Tooltip',
-        type: 'child',
-      },
+      // {
+      //   anchor: 'tooltip',
+      //   id: 12,
+      //   renderedComponent: 'Tooltip',
+      //   text: 'Tooltip',
+      //   type: 'child',
+      // },
     ]
   },
   {

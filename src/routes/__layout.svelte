@@ -76,7 +76,7 @@
         size: 'm',
         text: 'Website',
         type: 'primary',
-        url: 'https://hennepin-tech.edu'
+        url: 'https://hennepintech.edu'
       }} />
     </footer>
   </div>
