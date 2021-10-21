@@ -47,7 +47,7 @@
     border-radius: var(--radius);
     font-family: 'Din', sans-serif;
     font-weight: bold;
-    line-height: 1;
+    line-height: 0.9;
     color: var(--white);
     border: 3px solid transparent;
     outline: 2px solid transparent;
