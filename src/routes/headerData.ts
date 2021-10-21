@@ -37,12 +37,5 @@ export default {
         { text: 'Transfer', path: 'https://hennepintech.edu/future-students/transfer/index.html' },
       ],
     },
-  ],
-  assets: {
-    logos: [
-      {
-
-      }
-    ]
-  }
+  ]
 }
