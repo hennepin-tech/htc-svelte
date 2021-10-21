@@ -2,7 +2,7 @@
   import { writable } from 'svelte/store'
 
   export const toastOpen = writable(true);
-  export const toggle = (store) => toastOpen.set(!store)
+  export const toggleToast = (store) => toastOpen.set(!store)
 </script>
 <script lang=ts>
   import type { toastProps } from '$types/Toast'
@@ -27,7 +27,7 @@
     <div class="toast__message">
       <p>{props.message}</p>
     </div>
-    <button class="toast__close" on:click={() => toggle($toastOpen)}>
+    <button class="toast__close" on:click={() => toggleToast($toastOpen)}>
       <Close props={{size: 'xs', stroke: '2.5', color: '#FFF'}}/>
     </button>
   </div>
