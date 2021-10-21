@@ -115,6 +115,9 @@
 
     let buttonProps = {
       behavior: 'link',
+      layout: 'block',
+      outline: false,
+      size: 'm',
       text: 'Go Home',
       url: 'https://hennepintech.edu',
       type: 'primary'
@@ -128,9 +131,12 @@
 
   <Button props={{
       behavior: 'link',
+      layout: 'block',
+      outline: false,
+      size: 'm',
       text: 'Go Home',
+      type: 'primary',
       url: 'https://hennepintech.edu',
-      type: 'primary'
     }}/>
   </section>
   <!-- Button end -->
@@ -207,6 +213,9 @@
 
     let buttonProps = {
       behavior: 'button',
+      layout: 'block',
+      outline: false,
+      size: 'm',
       text: 'Open Modal',
       type: 'primary'
     }
@@ -226,6 +235,9 @@
     <p slot="content">This is a popup!</p>
     <Button slot="trigger" props={{
       behavior: 'button',
+      layout: 'block',
+      outline: false,
+      size: 'm',
       text: 'Open Modal',
       type: 'primary'
     }} on:click={() => toggle($modalOpen)}/>
@@ -254,14 +266,11 @@
   }
   table tbody tr {
     border-bottom: 1px solid #dddddd;
-}
-
-table tbody tr:nth-of-type(even) {
-    background-color: var(--gray-100);
-}
-
-table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--blue);
-}
-
+  }
+  table tbody tr:nth-of-type(even) {
+      background-color: var(--gray-100);
+  }
+  table tbody tr:last-of-type {
+      border-bottom: 2px solid var(--blue);
+  }
 </style>

@@ -7,5 +7,7 @@
   <slot/>
 <Footer />
 <style>
-
+  :global(body) {
+    min-height: 100vh;
+  }
 </style>

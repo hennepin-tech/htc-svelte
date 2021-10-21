@@ -1,11 +1,11 @@
 import type { PortableTextBlocks } from '@portabletext/svelte/ptTypes';
 
-export type AccordianProps = {
+export type AccordionProps = {
   multiselect: boolean,
-  data: AccordianContentItem[] 
+  data: AccordionContentItem[] 
 }
 
-export interface AccordianContentItem {
+export interface AccordionContentItem {
   _key: string,
   _type: string,
   title: string,

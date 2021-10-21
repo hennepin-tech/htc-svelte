@@ -53,18 +53,27 @@
     <footer>
       <Button props = {{
         behavior: 'link',
+        layout: 'block',
+        outline: false,
+        size: 'm',
         text: 'Github',
         type: 'primary',
         url: 'https://github.com/hennepin-tech'
       }} />
       <Button props = {{
         behavior: 'link',
+        layout: 'block',
+        outline: false,
+        size: 'm',
         text: 'Repo',
         type: 'primary',
         url: 'https://github.com/hennepin-tech/htc-svelte'
       }} />
       <Button props = {{
         behavior: 'link',
+        layout: 'block',
+        outline: false,
+        size: 'm',
         text: 'Website',
         type: 'primary',
         url: 'https://hennepin-tech.edu'
@@ -121,6 +130,7 @@
   
   aside > ul > li {
     font-weight: 700;
+    margin-top: 20px;
   }
 
   aside > ul > li > ul > li {
