@@ -8,7 +8,17 @@
   }
 </script>
 
-{#if props.size === 's'}
+{#if props.size === 'xs'}
+  <svg xmlns="http://www.w3.org/2000/svg" width="15.265" height="15.265" viewBox="0 0 15.265 15.265">
+    <g id="Group_39" data-name="Group 39" transform="translate(-227 -95)">
+      <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(227 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
+        <ellipse cx="6.274" cy="6.458" rx="6.274" ry="6.458" stroke="none"/>
+        <ellipse cx="6.274" cy="6.458" rx="5.274" ry="5.458" fill="none"/>
+      </g>
+      <path id="Path_1" data-name="Path 1" d="M231.21,154.7l3.234,3.22" transform="translate(6.407 -49.07)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
+    </g>
+  </svg>
+{:else if props.size === 's'}
   <svg xmlns="http://www.w3.org/2000/svg" width="21.414" height="21.414" viewBox="0 0 21.414 21.414">
     <title>Search</title>
     <g id="Group_7" data-name="Group 7" transform="translate(-227 -95)">

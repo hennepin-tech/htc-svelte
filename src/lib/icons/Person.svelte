@@ -8,7 +8,18 @@
   }
 </script>
 
-{#if props.size === 's'}
+{#if props.size === 'xs'}
+<svg xmlns="http://www.w3.org/2000/svg" width="14.478" height="13.478" viewBox="0 0 14.478 13.478">
+  <g id="Group_38" data-name="Group 38" transform="translate(-226.5 -95)">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(229.684 95)" fill="none" stroke={props.color} stroke-width={props.stroke}>
+      <circle cx="4.055" cy="4.055" r="4.055" stroke="none"/>
+      <circle cx="4.055" cy="4.055" r="3.055" fill="none"/>
+    </g>
+    <path id="Path_2" data-name="Path 2" d="M227.149,106.521v-2.965h12.478v2.965" transform="translate(0.351 0.957)" fill="none" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={props.stroke}/>
+  </g>
+</svg>
+
+{:else if props.size === 's'}
 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21">
   <title>Person</title>
   <g id="Group_5" data-name="Group 5" transform="translate(-226.5 -95)">

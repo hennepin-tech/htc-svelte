@@ -8,7 +8,14 @@
   }
 </script>
 
-{#if props.size === 's'}
+{#if props.size === 'xs'}
+  <svg xmlns="http://www.w3.org/2000/svg" width="11.791" height="11.791" viewBox="0 0 11.791 11.791">
+    <g id="Group_37" data-name="Group 37" transform="translate(10.446 1.283) rotate(90)">
+      <line id="Line_1" data-name="Line 1" y1="8.963" x2="8.963" transform="translate(0.131 0.068)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
+      <line id="Line_3" data-name="Line 3" x2="8.963" y2="8.963" transform="translate(0.131 0.068)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
+    </g>
+  </svg>
+{:else if props.size === 's'}
 <svg xmlns="http://www.w3.org/2000/svg" width="22.828" height="22.828" viewBox="0 0 22.828 22.828">
   <title>Close</title>
   <g id="Group_29" data-name="Group 29" transform="translate(21.483 1.283) rotate(90)">

@@ -8,7 +8,26 @@
   }
 </script>
 
-{#if props.size === 's'}
+{#if props.size === 'xs'}
+  <svg xmlns="http://www.w3.org/2000/svg" width="9.222" height="14.388" viewBox="0 0 9.222 14.388">
+    <g id="Group_36" data-name="Group 36" transform="translate(-226.396 -148.765)">
+      <g id="Group_9" data-name="Group 9" transform="translate(227.138 149.507)">
+        <path id="Path_2" data-name="Path 2" d="M0,6.416H9.18L11.157,0,9.18,6.416Z" transform="translate(1.439 11.178) rotate(-90)" fill="none" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={props.stroke}/>
+        <path id="Path_5" data-name="Path 5" d="M217.146,97.805l1.383-.3" transform="translate(-217.146 -97.507)" fill="none" stroke={props.color} stroke-linecap="round" stroke-width={props.stroke}/>
+      </g>
+      <g id="Group_10" data-name="Group 10" transform="matrix(1, -0.017, 0.017, 1, 228.573, 150.207)" style="isolation: isolate">
+        <g id="Group_11" data-name="Group 11" transform="translate(0 0)">
+          <path id="Path_2-2" data-name="Path 2" d="M0,5.965,2.079,0l9.1,0L8.888,5.961Z" transform="translate(0 11.176) rotate(-90)" fill="#fff" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={`${parseInt(props.stroke) / 4}`}/>
+          <path id="Path_4" data-name="Path 4" d="M0,5.48,2.259,0l9.1,0L8.8,5.476Z" transform="translate(0 11.391) rotate(-90)" fill="#fff" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={`${parseInt(props.stroke) / 4}`}/>
+          <path id="Path_3" data-name="Path 3" d="M0,5.017,2.475,0l9.1,0L8.621,5.013Z" transform="translate(0 11.579) rotate(-90)" fill="#fff" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={`${parseInt(props.stroke) / 4}`}/>
+        </g>
+      </g>
+      <g id="Group_8" data-name="Group 8" transform="translate(227.124 149.813)">
+        <path id="Path_2-3" data-name="Path 2" d="M0,5.489,2.621,0H12.714L9.489,5.489Z" transform="translate(0 12.714) rotate(-90)" fill="#fff" stroke={props.color} stroke-linecap="round" stroke-linejoin="round" stroke-width={props.stroke}/>
+      </g>
+    </g>
+  </svg>
+{:else if props.size === 's'}
   <svg xmlns="http://www.w3.org/2000/svg" width="14.236" height="22.188" viewBox="0 0 14.236 22.188">
     <title>Book</title>
     <g id="Group_12" data-name="Group 12" transform="translate(-225.958 -148.319)">
