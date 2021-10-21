@@ -1,13 +1,10 @@
-<script lang=ts context=module>
-   import data from './headerData'
-</script>
 <script lang=ts>
   import { innerWidth } from '$lib/stores/innerWidth'
   import HeaderDesktop from './parts/HeaderDesktop.svelte';
   import HeaderTablet from './parts/HeaderTablet.svelte';
   import HeaderMobile from './parts/HeaderMobile.svelte';
 
-  const headerProps = {
+  export let props = {
     banner: {
       bannerProps: {
         message: 'Masks Required on Campus. Click here for more info!',
@@ -15,12 +12,12 @@
       },
       display: true
     },
-    data
+    data: undefined
   }
 </script>
 
 {#if $innerWidth >= 768}
-  <HeaderDesktop props={headerProps}/>
+  <HeaderDesktop {props}/>
 {:else if $innerWidth >= 500}
   <HeaderTablet />
 {:else}
