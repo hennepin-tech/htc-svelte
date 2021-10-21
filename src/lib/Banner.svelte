@@ -24,7 +24,7 @@
   .banner__message {
     display: block;
     color: var(--white);
-    font-size: calc(12px + .8vw);
+    font-size: calc(10px + .8vw);
     font-weight: 700;
     text-align: center;
     margin: auto;
