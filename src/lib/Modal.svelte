@@ -1,37 +1,41 @@
 <script lang=ts context=module>
+  import Close from '$lib/icons/Close.svelte'
   import { writable } from 'svelte/store';
 
   export const modalOpen = writable(false);
-  export const toggle = (store) => modalOpen.set(!store)
+  export const toggleModal = (store) => modalOpen.set(!store)
 </script>
 
 <script lang=ts>
   import { prevent_default } from 'svelte/internal';
-  // TODO: props
-  // export let props = {
-  //   type: 'simple'
-  // }
+  import type { ModalProps } from '$types/Modal'
+  
+  export let props:ModalProps = {
+    type: 'simple',
+    theme: 'black'
+  }
   
 </script>
 
 {#if $modalOpen}
-<!-- TODO: conditional rendering by type -->
-<div class="modal__overlay" on:click={() => toggle($modalOpen)}>
-</div>
-<div class="modal" on:click={prevent_default}>
-  <header class="modal__header">
-    <slot name="heading"/>
-    <button 
-      class="modal__close" 
-      on:click={() => toggle($modalOpen)} 
-      tabindex="0"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path id="Icon_material-close" data-name="Icon material-close" d="M28.5,9.615,26.385,7.5,18,15.885,9.615,7.5,7.5,9.615,15.885,18,7.5,26.385,9.615,28.5,18,20.115,26.385,28.5,28.5,26.385,20.115,18Z" transform="translate(-6 -6)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>      
-    </button>
-  </header>
-  <slot name="content"/>
-</div>
+  <!-- TODO: conditional rendering by type -->
+  <div class="modal__overlay" on:click={() => toggleModal($modalOpen)}>
+  </div>
+  <div class="modal" on:click={prevent_default}>
+    <header class="modal__header">
+      <slot name="heading"/>
+      <button 
+        class="modal__close" 
+        on:click={() => toggleModal($modalOpen)} 
+        tabindex="0"
+      >
+        <Close props={{size: 's', stroke: '3.5', color: '#ffffff'}}/>
+      </button>
+    </header>
+    <slot name="content"/>
+  </div>
 {/if}
+
 <slot name="trigger"/>
 
 
