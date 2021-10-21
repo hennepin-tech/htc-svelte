@@ -4,8 +4,11 @@
 <script lang=ts>
   import { fade, fly } from 'svelte/transition'
   import { backOut } from 'svelte/easing'
-  import { innerWidth } from '../../stores/innerWidth'
+  // import { innerWidth } from '../../stores/innerWidth'
   import Banner from '$lib/Banner.svelte'
+  import Button from '$lib/Button.svelte'
+  import Person from '$lib/icons/Person.svelte'
+  import Search from '$lib/icons/Search.svelte'
 
   $:({ subNav, mainNav } = data)
 
@@ -17,7 +20,6 @@
       },
       display: false
     },
-
   }
 
   let subNavShowing = false
@@ -54,17 +56,32 @@
       <ul>
         {#each subNav as {label, links}}
           <li>
-            <button on:click={() => openSubNav(label)}>{label}</button>
+            <button
+            class="sub__nav__button"
+            class:sub__nav__open={subNavShowing && subNavShowingLabel === label}
+              on:click={() => openSubNav(label)}
+            >{label}</button>
             {#if subNavShowing && subNavShowingLabel === label}
-              <ul transition:fly={{y: -45, delay: 0, duration: 300, opacity: 100}}>
+              <ul class="sub__nav__dropdown" transition:fly={{y: -45, delay: 0, duration: 400, opacity: 100}}>
                 {#each links as {path, text}}
-                  <a href={path}>{text}</a>
+                  <li>
+                    <a href={path}>{text}</a>
+                  </li>
                 {/each}
               </ul>
             {/if}
           </li>
         {/each}
       </ul>
+      <div class="icon__menu">
+        <a href="/" class="icon__button">
+          <Person props={{color: '#ffffff', size: 's', stroke: '2'}}/>
+        </a>
+        <button class="icon__button">
+          <Search props={{color: '#ffffff', size: 's', stroke: '2'}}/>
+        </button>
+        <Button props={{ type: 'primary', text: 'Giving', behavior: 'link', layout: 'inline', size: 'xs', outline: true, url: 'https://hennepintech.edu/giving'}}/>
+      </div>
     </nav>
   {/if}  
 
@@ -74,14 +91,12 @@
       <ul>
         {#each mainNav as {label, links}}
           <li class="main__nav__item">
+
             <button 
               class="main__nav__item__button" 
               class:main__nav__item__button--open={dropdownOpen && dropdownOpenLabel === label} 
               on:click={() => openDropdown(label)}
             >
-            <span class="main__nav__item__button__icon">
-
-            </span>
               {label}
             </button>
             {#if dropdownOpen && dropdownOpenLabel === label}
@@ -93,6 +108,7 @@
                 {/each}
               </ul>
             {/if}
+
           </li>
         {/each}
       </ul>
@@ -102,45 +118,89 @@
 </header>
 
 <style>
+  #sub__nav, #main__nav { padding: 0 1rem; }
   #sub__nav {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: var(--gray-700);
-    padding: .3rem;
+    padding: .3rem 1rem;
     width: 100%;
   }
-
   #sub__nav > ul {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
   }
-
-  #sub__nav li {
-    margin: 0;
-  }
-
-  #sub__nav button, #sub__nav a {
+  #sub__nav li { margin: 0; }
+  .sub__nav__button { position: relative; }
+  .sub__nav__button, #sub__nav a {
     background: transparent;
     border: none;
     color: var(--white);
     font-size: .9rem;
     margin: 0;
   }
-
-  #sub__nav button:hover {
-    cursor: pointer;
+  .sub__nav__button:hover { cursor: pointer; }
+  .sub__nav__button:focus { text-decoration: underline; }
+  .sub__nav__button:before {
+    right: calc(50% - 15px);
+    border-bottom: 15px solid transparent;
+    opacity: 0;
   }
-
-  #sub__nav button:focus {
-    text-decoration: underline;
+  .sub__nav__button:after {
+    top: 76.5%;
+    right: calc(50% - 15px);
+    border-bottom: 15px solid transparent;
   }
-
-  #sub__nav > ul > li > ul {
+  @keyframes slideDownBefore {
+    0% { top: 0px; }
+    100% { top: 12px; }
+  }
+  @keyframes slideDownAfter {
+    0% {
+      border-top: 4px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 17px solid var(--gray-700);
+      border-left: 17px solid transparent;
+    }
+    100% {
+      border-top: 8px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid var(--gray-700);
+      border-left: 15px solid transparent;
+    }
+  }
+  .sub__nav__button:before,
+  .sub__nav__button:after {
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 0px;
+    transition: opacity 0.6s ease 0s;
+  }
+  .sub__nav__open:before {
+    border-top: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid var(--white);
+    border-left: 15px solid transparent;
+    opacity: 100%;
+    top: 12px;
+  }
+  .sub__nav__open:after {
+    animation: slideDownAfter 0.4s linear 0s;
+    border-top: 8px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid var(--gray-700);
+      border-left: 15px solid transparent;
+  }
+  .sub__nav__dropdown {
     position: absolute; 
     background-color: var(--gray-700);
     bottom: -40px;
-    padding: .7rem;
+    padding: 0.7rem calc(1rem + 0.4em);
     left: 0;
     border-top: 2px solid var(--white);
     display: flex;
@@ -149,7 +209,11 @@
     width: 100%;
     z-index: -1;
   }
-
+  .icon__menu {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+  }
   #main__nav {
     display: flex;
     align-items: center;
@@ -157,25 +221,21 @@
     gap: 2rem;
     min-height: 75px;
     background-color: var(--white);
-    padding: 1.2rem 0.8rem;
+    padding: 1.2rem 1rem;
     transition: margin-top 0.3s ease-in-out 0s;
     box-shadow: var(--bottom-shadow);
   }
-
   #main__nav__img {
     max-width: 350px;
   }
-
   #main__nav__nav > ul {
     display: flex;
     gap: 1rem;
   }
-
   .main__nav__item {
     margin: 0;
     position: relative;
   }
-
   .main__nav__item__dropdown {
     position: absolute;
     top: 47px;
@@ -188,7 +248,6 @@
     border-radius: var(--radius);
     width: max-content;
   }
-
   .main__nav__item__dropdown:before {
     position: absolute;
     content: "";
@@ -201,7 +260,6 @@
     top: -18%;
     right: 45px;
   }
-
   .main__nav__item__dropdown:after {
     position: absolute;
     content: "";
@@ -211,29 +269,22 @@
     border-right: 15px solid transparent;
     border-bottom: 15px solid var(--white);
     border-left: 15px solid transparent;
-    top: -10%;
+    top: -10.5%;
     right: 45px;
   }
-
-  .main__nav__item__dropdown__item > a {
-    padding: 5px;
-  }
-
+  .main__nav__item__dropdown__item > a { padding: 5px; }
   .main__nav__item__dropdown__item > a:hover {
     background-color: var(--blue);
     color: var(--white);
     text-decoration: none;
   }
-
   .main__nav__item__dropdown__item:last-child {
     margin-bottom: 0;
   }
-
   @keyframes fadeIn {
     0% {opacity:0;}
     100% {opacity:1;}
   }
-
   .main__nav__item__button {
     background-color: transparent;
     border: none;
@@ -242,7 +293,6 @@
     margin: 0;
     transition: opacity 0.1s ease-in-out 0s;
   }
-
   .main__nav__item__button:hover {
     cursor: pointer;
     background-color: #006BA712;
@@ -250,5 +300,7 @@
   .main__nav__item__button:focus {
     background-color: #006BA712;
   }
-
+  .main__nav__item__dropdown__item {
+    margin-bottom: .5rem;
+  }
 </style>
