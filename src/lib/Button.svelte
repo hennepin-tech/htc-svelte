@@ -4,7 +4,7 @@
   export let props:ButtonProps = {
     behavior: 'link',
     layout: 'block',
-    outline: true,
+    outline: false,
     size: 'm',
     text: 'Button',
     type: 'primary',
