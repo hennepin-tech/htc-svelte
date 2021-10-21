@@ -96,7 +96,8 @@ body {
   --radius: 5px;
 	--corner-shadow:  5px 5px 15px #00000021;
 	--bottom-shadow: 0px 5px 15px #00000021;
-	--focus-border: 3px solid var(--blue);
+	--focus-border: 2px solid var(--blue);
+	--focus-border-white: 2px solid var(--white);
 }
 
 * {
@@ -225,6 +226,18 @@ button:focus {
 hr {
 	border: none;
 	border-top: var(--border);
+}
+
+/* Icons */
+
+.icon__button { 
+	border-radius: var(--radius);
+	padding: 0; 
+	background-color: unset;
+	border: none;
+}
+.icon__button:focus {
+	outline: 2px solid var(--white);
 }
 
 svg {
