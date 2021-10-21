@@ -20,8 +20,8 @@
     <ul>
       <li>
         <a href="/">Getting Started</a>
-        <hr/>
       </li>
+      <hr/>
       {#each data as parent }
         <li>
           <a href={`/${parent.anchor}`}>{parent.text}</a>
@@ -41,8 +41,22 @@
       {/each}
       <li>
         <a href="/globals">Globals</a>
-        <hr/>
       </li>
+      <hr/>
+      <li>
+        <a href="/dev">Contributing</a>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <a href="/dev/architecture">Architecture Overview</a>
+          </li>
+          <li>
+            <a href="/dev/local">Local Dev Workflow</a>
+          </li>
+        </ul>
+      </li>
+      <hr/>
     </ul>
   </aside>
   <div>  
