@@ -1,7 +1,6 @@
 <script lang=ts>
   import { innerWidth } from '$lib/stores/innerWidth'
   import HeaderDesktop from './parts/HeaderDesktop.svelte';
-  import HeaderTablet from './parts/HeaderTablet.svelte';
   import HeaderMobile from './parts/HeaderMobile.svelte';
 
   export let props = {
@@ -18,10 +17,9 @@
 
 {#if $innerWidth >= 768}
   <HeaderDesktop {props}/>
-{:else if $innerWidth >= 500}
-  <HeaderTablet />
+
 {:else}
-  <HeaderMobile />
+  <HeaderMobile {props}/>
 {/if}
 
 <style>
