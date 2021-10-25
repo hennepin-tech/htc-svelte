@@ -64,7 +64,7 @@
       <h1>htc-svelte component library</h1>
       <slot />
     </main>
-    <footer>
+    <footer id="footer">
       <Button props = {{
         behavior: 'link',
         layout: 'block',
@@ -151,7 +151,7 @@
     font-weight: 300;
   }
 
-  footer {
+  #footer {
     border-top: 2px solid var(--black);
     min-height: 100px;
     margin-left: 300px;
@@ -162,7 +162,7 @@
     padding: 2rem;
     margin-top: 40px;
   }
-  footer a {
+  #footer a {
     font-size: 1.2rem;
   }
 

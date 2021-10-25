@@ -25,7 +25,9 @@
 
 
 <Header props={headerData}/>
-  <slot/>
+  <main>
+    <slot/>
+  </main>
 <Footer />
 <style>
   :global(body) {
