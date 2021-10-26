@@ -236,9 +236,7 @@
     outline: 2px solid var(--black);
   }
   #main__nav__img {
-    width: minmax(200px, 300px, 350px);
-    /* max-width: 350px; */
-
+    width: clamp(225px, 50%, 350px);
   }
   .main__nav__item {
     margin: 0;
