@@ -1,6 +1,6 @@
 <script lang=ts>
   import Header from '$lib/site/header/Header.svelte'
-  import Footer from '$lib/site/footer/Footer.svelte'
+  // import Footer from '$lib/site/footer/Footer.svelte'
   import type { HeaderData, HeaderProps } from '$types/Header'
 
   import data from '../headerData'
@@ -28,7 +28,7 @@
   <main>
     <slot/>
   </main>
-<Footer />
+<!-- <Footer /> -->
 <style>
   :global(body) {
     min-height: 100vh;

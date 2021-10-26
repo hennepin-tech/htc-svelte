@@ -12,6 +12,10 @@
     }
 </script>
 
+<svelte:head>
+  <title>Components</title>
+</svelte:head>
+
   ## Components
 
   <hr/>
@@ -38,7 +42,7 @@
 
   ```svelte
   <script>
-    import { Accordion } from 'htc-svelte'
+    import { Accordion } from '@hennepin-tech/htc-svelte'
     import { client } from 'sanityClient'
 
     let accordionData = []
@@ -83,7 +87,7 @@
 
   ```svelte
   <script>
-    import { Banner } from 'htc-svelte'
+    import { Banner } from '@hennepin-tech/htc-svelte'
 
     let message = 'This is the message!'
     let link = 'https://google.com'
@@ -105,7 +109,7 @@
   
   1. Outline buttons should only be used on dark backgrounds.
   2. All 's' and 'xs' sixed buttons should be outline buttons on dark backgrounds to ensure an accessible contrast ratio
-  3. Svelte event directives (on:click, on:mouseover, on:mouseenter, on:mouseleave, & on:focus) are passed down to the parent button/anchor element
+  3. Svelte event directives (on:click, on:mouseover, on:mouseenter, on:mouseleave, & on:focus) are passed down to the child button/anchor element
 
 
   #### Component
@@ -153,6 +157,7 @@
   | behavior | link, button                        | link         |
   | layout   | block, inline                       | block        |
   | outline  | boolean                             | false        |
+  | size     | xs, s, m, l                         | m            |
   | text     | string                              | 'Learn More' |
   | type     | primary, secondary, success, danger | 'primary'    |
   | url      | string                              | '#'          |
@@ -163,7 +168,7 @@
   
   ```svelte
   <script>
-    import { Button } from 'htc-svelte'
+    import { Button } from '@hennepin-tech/htc-svelte'
 
     let buttonProps = {
       behavior: 'link',
@@ -183,7 +188,7 @@
 
   ```svelte
   <script>
-    import { Button } from 'htc-svelte'
+    import { Button } from '@hennepin-tech/htc-svelte'
 
     let buttonProps = {
       behavior: 'button',
@@ -233,7 +238,7 @@
 
   ```svelte
   <script>
-    import { Callout } from 'htc-svelte'
+    import { Callout } from '@hennepin-tech/htc-svelte'
 
     let calloutProps = {
       // A URL string
@@ -311,7 +316,7 @@
 
   ```svelte
   <script>
-    import { Button, Modal, toggleModal, modalOpen } from 'htc-svelte'
+    import { Button, Modal, toggleModal, modalOpen } from '@hennepin-tech/htc-svelte'
 
     let modalProps = {
       onMount: true,

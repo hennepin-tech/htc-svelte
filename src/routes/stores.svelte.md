@@ -2,6 +2,10 @@
 
 </script>
 
+<svelte:head>
+  <title>Stores</title>
+</svelte:head>
+
 ## Stores
 
 Stores are how global state is managed in Svelte and SvelteKit. More info on stores can be found [here](https://svelte.dev/docs#svelte_store).

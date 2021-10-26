@@ -1,19 +1,25 @@
 <script lang=ts>
+  import { page } from '$app/stores'
   import { scrollto } from 'svelte-scrollto'
   import Button from '$lib/Button.svelte'
   import { data } from './data';
   import * as animateScroll from "svelte-scrollto";
-
+  import { innerWidth } from '$lib/stores/innerWidth'
+  
   animateScroll.setGlobalOptions({
     offset: -30, 
   })
-
-  import { innerWidth } from '$lib/stores/innerWidth'
+  
   let localWidth  
   $: innerWidth.set(localWidth)
 </script>
 
 <svelte:window bind:innerWidth={localWidth}/>
+
+<header id="globalHeader">
+  <img src="https://hennepintech.edu/_files/img/logo-htc.png" alt="Hennepin Technical College's Logo">
+  <span style="font-size: 1.2rem;">htc-svelte | the Svelte Implementation of HTC's Design System</span>
+</header>
 
 <div id="container">
   <aside>
@@ -26,6 +32,7 @@
         <li>
           <a href={`/${parent.anchor}`}>{parent.text}</a>
         </li>
+        {#if `/${parent.anchor}` === $page.path}
         <li>
           <ul>
             {#each parent.children as {anchor, text}}
@@ -37,6 +44,7 @@
             {/each}
           </ul>
         </li>
+        {/if}
         <hr/>
       {/each}
       <li>
@@ -46,6 +54,7 @@
       <li>
         <a href="/dev">Contributing</a>
       </li>
+      {#if $page.path === '/dev'}
       <li>
         <ul>
           <li>
@@ -56,15 +65,17 @@
           </li>
         </ul>
       </li>
+      {/if}
       <hr/>
     </ul>
   </aside>
-  <div>  
-    <main id="main-content">
-      <h1>htc-svelte component library</h1>
-      <slot />
-    </main>
-    <footer id="footer">
+<div>  
+
+<main id="main-content">
+  <slot />
+</main>
+
+<footer id="footer">
       <Button props = {{
         behavior: 'link',
         layout: 'block',
@@ -108,6 +119,20 @@
     margin-bottom: 15px;
   }
 
+  #globalHeader {
+    height: 70px;
+    background-color: var(--white);
+    box-shadow: var(--bottom-shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   #container {
     display: grid;
     grid-template-columns: 300px 3fr;
@@ -118,6 +143,11 @@
     padding: 1rem 2rem;
     width: calc(100vw - 300px - 6rem);
     margin-left: 300px;
+    margin-top: 70px;
+  }
+
+  :global(pre) {
+    margin-bottom: 1.2rem !important;
   }
 
   aside {
@@ -125,12 +155,13 @@
     scrollbar-color: var(--blue) var(--sidebar-bg);
     background-color: var(--sidebar-bg);
     font-size: 1.2rem;
-    height: 100vh;
+    min-height: calc(100vh - 70px);
     width: 300px;
     box-shadow: 5px 0 15px #00000036;
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
+    z-index: 1;
   }
 
   ul {
