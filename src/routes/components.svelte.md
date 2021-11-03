@@ -404,7 +404,7 @@
       text: 'Open Toast',
       type: 'primary'
     }} 
-    on:click={() => toggleToast($toastOpen)}
+    on:click={() => toastOpen.set(true)}
   />
   <Toast props={{
     message: 'A Sample Message',
@@ -451,7 +451,7 @@
   <Tooltip 
     props={{
       content: 'Click this button to go to the homepage!',
-      position: 'left'
+      position: 'bottom'
     }} 
   >
     <Button 

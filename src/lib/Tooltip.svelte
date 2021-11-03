@@ -7,8 +7,7 @@
     position: 'top'
   }
   
-  let visible:boolean = true
-  $:(console.log(visible))
+  let visible:boolean = false
 </script>
 
 <div class="tooltip">
