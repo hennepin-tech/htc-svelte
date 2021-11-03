@@ -1,13 +1,12 @@
 <script lang=ts>
   import { page } from '$app/stores'
   import { scrollto } from 'svelte-scrollto'
-  import Button from '$lib/Button.svelte'
   import { data } from './data';
   import * as animateScroll from "svelte-scrollto";
   import { innerWidth } from '$lib/stores/innerWidth'
   
   animateScroll.setGlobalOptions({
-    offset: -30, 
+    offset: -100, 
   })
   
   let localWidth  
@@ -25,19 +24,18 @@
   <aside>
     <ul>
       <li>
-        <a href="/">Getting Started</a>
+        <a class="block__link" href="/">Getting Started</a>
       </li>
-      <hr/>
       {#each data as parent }
         <li>
-          <a href={`/${parent.anchor}`}>{parent.text}</a>
+          <a class="block__link" href={`/${parent.anchor}`}>{parent.text}</a>
         </li>
         {#if `/${parent.anchor}` === $page.path}
         <li>
           <ul>
             {#each parent.children as {anchor, text}}
               <li>
-                <a href={`${parent.anchor}/#${anchor}`} use:scrollto={`#${anchor}`}>
+                <a class="block__link" href={`${parent.anchor}/#${anchor}`} use:scrollto={`#${anchor}`}>
                   {text}
                 </a>
               </li>
@@ -45,28 +43,40 @@
           </ul>
         </li>
         {/if}
-        <hr/>
       {/each}
       <li>
-        <a href="/globals">Globals</a>
+        <a class="block__link" href="/globals">Globals</a>
       </li>
-      <hr/>
       <li>
-        <a href="/dev">Contributing</a>
+        <a class="block__link" href="/utils">Utility Classes</a>
+      </li>
+      {#if $page.path === '/utils'}
+      <li>
+        <ul>
+          <li>
+            <a class="block__link" href="/utils/#anchor" use:scrollto={'#icon__button'}>icon__button</a>
+          </li>
+        </ul>
+      </li>
+      {/if}
+      <li>
+        <a class="block__link" href="/icons">Icons</a>
+      </li>
+      <li>
+        <a class="block__link" href="/dev">Contributing</a>
       </li>
       {#if $page.path === '/dev'}
       <li>
         <ul>
           <li>
-            <a href="/dev/architecture">Architecture Overview</a>
+            <a class="block__link" href="/dev/architecture">Architecture Overview</a>
           </li>
           <li>
-            <a href="/dev/local">Local Dev Workflow</a>
+            <a class="block__link" href="/dev/local">Local Dev Workflow</a>
           </li>
         </ul>
       </li>
       {/if}
-      <hr/>
     </ul>
   </aside>
 <div>  
@@ -75,35 +85,6 @@
   <slot />
 </main>
 
-<footer id="footer">
-      <Button props = {{
-        behavior: 'link',
-        layout: 'block',
-        outline: false,
-        size: 'm',
-        text: 'Github',
-        type: 'primary',
-        url: 'https://github.com/hennepin-tech'
-      }} />
-      <Button props = {{
-        behavior: 'link',
-        layout: 'block',
-        outline: false,
-        size: 'm',
-        text: 'Repo',
-        type: 'primary',
-        url: 'https://github.com/hennepin-tech/htc-svelte'
-      }} />
-      <Button props = {{
-        behavior: 'link',
-        layout: 'block',
-        outline: false,
-        size: 'm',
-        text: 'Website',
-        type: 'primary',
-        url: 'https://hennepintech.edu'
-      }} />
-    </footer>
   </div>
 </div>
 
@@ -111,7 +92,7 @@
   @import '$lib/global.module.css';
 
   body {
-    --sidebar-bg: var(--grey-100);
+    --sidebar-bg: var(--white);
   }
 
   hr {
@@ -138,12 +119,13 @@
     display: grid;
     grid-template-columns: 300px 3fr;
     grid-template-rows: auto;
+    min-height: 100vh;
   }
 
   main {
-    padding: 1rem 2rem;
-    width: calc(100vw - 300px - 6rem);
-    margin-left: 300px;
+    padding: 1rem 4rem;
+    width: calc(100vw - 250px - 6rem);
+    margin-left: 250px;
     margin-top: 70px;
   }
 
@@ -157,12 +139,12 @@
     background-color: var(--sidebar-bg);
     font-size: 1.2rem;
     min-height: calc(100vh - 70px);
-    width: 300px;
-    box-shadow: 5px 0 15px #00000036;
+    width: 250px;
+    box-shadow: 5px 15px 15px #00000036;
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
   }
 
   ul {
@@ -184,7 +166,6 @@
   }
 
   #footer {
-    border-top: 2px solid var(--black);
     min-height: 100px;
     margin-left: 300px;
     display: flex;

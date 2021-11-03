@@ -58,13 +58,13 @@ export const data:SidebarItem[] = [
         text: 'Callout',
         type: 'child',
       },
-      // {
-      //   anchor: 'card',
-      //   id: 6,
-      //   renderedComponent: 'Card',
-      //   text: 'Card',
-      //   type: 'child',
-      // },
+      {
+        anchor: 'card',
+        id: 6,
+        renderedComponent: 'Card',
+        text: 'Card',
+        type: 'child',
+      },
       
       // {
       //   anchor: 'form',
@@ -81,13 +81,6 @@ export const data:SidebarItem[] = [
         type: 'child',
       },
       // {
-      //   anchor: 'navigation',
-      //   id: 9,
-      //   renderedComponent: 'Navigation',
-      //   text: 'Navigation',
-      //   type: 'child',
-      // },
-      // {
       //   anchor: 'tabs',
       //   id: 10,
       //   renderedComponent: 'Tabs',
@@ -101,13 +94,13 @@ export const data:SidebarItem[] = [
         text: 'Toast',
         type: 'child',
       },
-      // {
-      //   anchor: 'tooltip',
-      //   id: 12,
-      //   renderedComponent: 'Tooltip',
-      //   text: 'Tooltip',
-      //   type: 'child',
-      // },
+      {
+        anchor: 'tooltip',
+        id: 12,
+        renderedComponent: 'Tooltip',
+        text: 'Tooltip',
+        type: 'child',
+      },
     ]
   },
   {

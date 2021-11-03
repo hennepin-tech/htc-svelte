@@ -7,10 +7,32 @@
 </svelte:head>
 
 ## Getting Started
+
+<hr/>
+
 To install the library, run this in the root of your Svelte project...
 
 ```shell
 npm install --save @hennepin-tech/htc-svelte
+```
+
+Then initialize the global ```innerWidth``` store, and add the global style sheet in your app's ```__layout.svelte``` file...
+
+```svelte
+<!-- __layout.svelte -->
+<script>
+  import { innerWidth, styles } from '@hennepin-tech/htc-svelte'
+
+  let localWidth
+  $: innerWidth.set(localWidth)
+</script>
+
+<svelte:window bind:innerWidth={localWidth}/>
+
+<!-- your layout here -->
+
+<style global={styles}>
+</style>
 ```
 
 Then use a component!

@@ -4,8 +4,10 @@
   import Banner from '$lib/Banner.svelte'
   import Button from '$lib/Button.svelte'
   import Callout from '$lib/Callout.svelte'
+  import Card from '$lib/Card.svelte'
   import Modal, { modalOpen, toggleModal } from '$lib/Modal.svelte'
   import Toast, { toastOpen, toggleToast } from '$lib/Toast.svelte'
+  import Tooltip from '$lib/Tooltip.svelte'
 
   const handleClick = (msg:string) => {
       alert(msg);
@@ -259,6 +261,60 @@
 
   <hr/>
 
+  <!-- Card start -->
+  <section id="card">
+  
+  <h3> Card </h3>
+
+  #### Component
+
+  <Card props={{
+    date: 'Sun. Sept 12th, 2021',
+    desc: 'a description of the article',
+    image: 'https://hennepintech.edu/_images/academic-programs/building-and-construction/carpentry/Carpentry_banner3.jpg',
+    imageAlt: 'A wide shot of the carpentry shop at HTC',
+    path: '/',
+    title: 'Card Title'
+  }}/>
+
+  #### Props
+
+  | Prop     | Type   | Default      |
+  |----------|--------|--------------|
+  | date     | string | undefined    |
+  | desc     | string | ''           |
+  | image    | string | undefined    |
+  | imageAlt | string | undefined    |
+  | path     | string | '/'          |
+  | title    | string | 'Learn More' |
+
+  #### Usage
+
+  ```svelte
+  <script>
+    import { Card } from '@hennepin-tech/htc-svelte'
+
+    let cardProps = {
+      date: 'Sun. Sept 12th, 2021',
+      desc: 'a description of the article',
+      // A URL string
+      image: 'https://hennepintech.edu/_images/academic-programs/building-and-construction/carpentry/Carpentry_banner3.jpg',
+      // Alternative text is always required!
+      imageAlt: 'A wide shot of the carpentry shop at HTC',
+      // Either a local path in the Svelte app, or an external URL
+      path: '/',
+      title: 'Card Title'
+    }
+
+  </script>
+
+  <Card props={cardProps}/>
+  ```
+  </section>
+  <!-- Card end -->
+
+  <hr/>
+
   <!-- Modal start -->
   <section id="modal">
   
@@ -270,18 +326,6 @@
 
   #### Component
 
-  <Modal props={{ onMount: false, theme: 'black', type: 'simple'}}>
-    <p slot="content">This is a popup!</p>
-    <Button slot="trigger" props={{
-      behavior: 'button',
-      layout: 'inline',
-      outline: false,
-      size: 'm',
-      text: 'Open Modal',
-      type: 'primary'
-    }} on:click={() => toggleModal($modalOpen)}/>
-  </Modal>
-
   <Modal props={{ onMount: false, theme: 'black', type: 'header'}}>
     <h2 slot="heading">The Heading</h2>
     <p slot="content">This is a popup!</p>
@@ -290,7 +334,7 @@
       layout: 'inline',
       outline: false,
       size: 'm',
-      text: 'Open Simple Modal',
+      text: 'Open Modal',
       type: 'primary'
     }} on:click={() => toggleModal($modalOpen)}/>
   </Modal>
@@ -345,35 +389,119 @@
 
   <hr/>
 
-<style>
-  table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 1.5em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
-  table thead tr {
-    background-color: var(--blue);
-    color: #ffffff;
-    text-align: left;
-  }
-  th, td {
-    padding: 12px 15px;
-  }
-  table tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
-  table tbody tr:nth-of-type(even) {
-      background-color: var(--gray-100);
-  }
-  table tbody tr:last-of-type {
-      border-bottom: 2px solid var(--blue);
-  }
+  <!-- Toast start -->
+  <section id="toast">
+  
+  <h3>Toast</h3>
 
-  :global(ol){
-    font-size: 1.2rem;
-    margin-left: 2rem;
-  }
-</style>
+  #### Component
+
+  <Button 
+    props={{ 
+      behavior: 'button',
+      layout: 'block',
+      size: 'm',
+      text: 'Open Toast',
+      type: 'primary'
+    }} 
+    on:click={() => toggleToast($toastOpen)}
+  />
+  <Toast props={{
+    message: 'A Sample Message',
+    position: 'right',
+    type: 'primary'
+  }}/>
+
+  #### Props
+
+  | Prop     | Type                                | Default          |
+  |----------|-------------------------------------|------------------|
+  | message  | string                              | A Sample Message |
+  | position | left, center, right                 | right            |
+  | type     | primary, secondary, success, danger | primary          |
+
+  #### Usage
+
+  ```svelte
+  <script>
+    import Toast, { toastOpen } from '@hennepin-tech/htc-svelte'
+
+    let props = {
+      message: 'A Sample Message',
+      position: 'right',
+      type: 'primary'
+    }
+
+    onMount(() => toastOpen.set(true))
+
+  </script>
+
+  <Toast {props}/>
+  ```
+  </section>
+  <!-- Toast end -->
+
+  <!-- Tooltip start -->
+  <section id="tooltip">
+  
+  <h3>Tooltip</h3>
+
+  #### Component
+
+  <Tooltip 
+    props={{
+      content: 'Click this button to go to the homepage!',
+      position: 'left'
+    }} 
+  >
+    <Button 
+      props={{ 
+        behavior: 'link',
+        layout: 'block',
+        size: 'm',
+        text: 'Hover for tooltip',
+        type: 'primary',
+        url: '/'
+      }} 
+    />
+  </Tooltip>
+
+  #### Props
+
+  | Prop      | Type                     | Default        |
+  |-----------|--------------------------|----------------|
+  | content   | string                   | Toast Content! |
+  | position  | left, right, top, bottom | top            |
+
+  #### Usage
+
+  ```svelte
+  <script>
+    import Tooltip from '@hennepin-tech/htc-svelte'
+
+    let buttonProps = { 
+        behavior: 'link',
+        layout: 'block',
+        size: 'm',
+        text: 'Hover for tooltip',
+        type: 'primary',
+        url: '/'
+      }
+
+  </script>
+
+  <Tooltip 
+    props={{
+      content: 'Click this button to go to the homepage!',
+      position: 'top'
+    }} 
+  >
+    <Button 
+      props={buttonProps} 
+    />
+  <Tooltip/>
+  ```
+  </section>
+  <!-- Tooltip end -->
+
+  
