@@ -41,7 +41,7 @@
     display: grid;
     grid-template-columns: 1fr 35px;
     grid-template-rows: auto;
-    position: absolute;
+    position: fixed;
     bottom: var(--toast-spacing);
     z-index: 1000;
     padding: .5rem;
