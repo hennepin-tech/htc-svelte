@@ -67,13 +67,13 @@
   /* Sizes */
   .button--xs {
     margin: .25rem;
-    padding: 4px 10px;
+    padding: 5px 10px;
     font-size: 15px;
     font-weight: 500;
   }
   .button--s {
     margin: .5rem;
-    padding: 7px 13px;
+    padding: 9px 13px;
     font-size: 19px;
     font-weight: 500;
   }
