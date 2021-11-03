@@ -22,7 +22,7 @@
       modalOpen.set(true)
     } else { return }
   })
-  
+  // onMount(() => props.onMount ? modalOpen.set(true) : null)
 </script>
 
 {#if $modalOpen}
