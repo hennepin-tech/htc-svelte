@@ -1,5 +1,5 @@
 <script lang=ts>
-  import type { IconProps } from "./iconTypes";
+  import type { IconProps } from "$types/Icon";
   
   export let props:IconProps = {
     size: 's',
