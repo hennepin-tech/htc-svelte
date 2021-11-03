@@ -1,6 +1,6 @@
 {
 	"name": "@hennepin-tech/htc-svelte",
-	"version": "0.0.4",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
