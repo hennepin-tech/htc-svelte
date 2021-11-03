@@ -1,7 +1,7 @@
 <script lang=ts context=module>
   import { writable } from 'svelte/store'
 
-  export const toastOpen = writable(true);
+  export const toastOpen = writable(false);
   export const toggleToast = (store) => toastOpen.set(!store)
 </script>
 <script lang=ts>
