@@ -188,6 +188,11 @@ ul {
 	padding-left: 1.2rem;
 }
 
+ol{
+	font-size: 1.2rem;
+	margin-left: 2rem;
+}
+
 li {
 	margin-bottom: .4rem;
 }
@@ -234,13 +239,57 @@ button:focus {
 	border-color: #666;
 }
 
+table {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 1.5em;
+	font-family: sans-serif;
+	min-width: 400px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+	background-color: var(--blue);
+	color: #ffffff;
+	text-align: left;
+}
+th, td {
+	padding: 12px 15px;
+}
+table tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+table tbody tr:nth-of-type(even) {
+		background-color: var(--gray-100);
+}
+table tbody tr:last-of-type {
+		border-bottom: 2px solid var(--blue);
+}
+
 hr {
 	border: none;
 	border-top: var(--border);
 }
 
-/* Icons */
+svg {
+	margin: .5rem;
+}
 
+/* Utils */
+
+/* block__link */
+.block__link {
+	padding: 5px;
+}
+.block__link:hover{
+	cursor: pointer;
+}
+.block__link:hover, .block__link:focus, .block__link:active {
+	background-color: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* icon__button */
 .icon__button { 
 	border-radius: var(--radius);
 	padding: 0; 
@@ -251,6 +300,3 @@ hr {
 	outline: 2px solid var(--white);
 }
 
-svg {
-	margin: .5rem;
-}
