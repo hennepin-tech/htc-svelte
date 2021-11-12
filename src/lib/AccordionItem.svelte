@@ -35,7 +35,7 @@
 
 <li 
   class="accordion__item" 
-  style={index === 0 ? `border-top: 2px solid var(--black)` : ''}
+  style={index === 0 ? `border-top: 2px solid var(--text-color)` : ''}
   data-accordion-item 
   {...$$restProps}
 >
@@ -61,7 +61,7 @@
     }}>
     <div class="accordion__item__title" class:accordion__item--expanded={expanded}>
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" viewBox="0 0 22 25" style={expanded ? 'transform: rotate(90deg)translateY(-10px);' : ''}>
-        <path id="Polygon_4" data-name="Polygon 4" d="M12.5,0,25,22H0Z"  fill="{expanded ? '#006BA7' : '#f26522'}"/>
+        <path id={`Polygon_${index}`} data-name={`Polygon ${index}`} d="M12.5,0,25,22H0Z"  fill="{expanded ? '#006BA7' : '#f26522'}"/>
       </svg>
       <h2>{title}</h2>
     </div>
@@ -81,11 +81,11 @@
     margin-bottom: 0;
     min-width: 300px;
     max-width: 600px; 
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--text-color);
     transition: all .3s ease-in-out .02s;
   } 
   .accordion__item__button {
-    background-color: var(--white);
+    background-color: transparent;
     border: none;
     width: 100%;
     text-align: left;
@@ -96,7 +96,7 @@
   }
   .accordion__item__button:focus {
     /* outline: 2px solid var(--black); */
-    background-color: var(--gray-100);
+    /* background-color: var(--gray-100); */
   }
   .accordion__item__button--expanded:focus {
     /* outline: none; */

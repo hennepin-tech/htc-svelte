@@ -20,6 +20,9 @@
       button--${props.size}
       ${props.outline === true ? 'button--outline' : ''}
     `}"
+    name={props.text}
+    type={props.submit ? 'submit' : 'button'}
+    style={props.style}
     on:click on:mouseover on:mouseenter on:mouseleave on:focus
   >
     {props.text}
@@ -35,6 +38,8 @@
       ${props.outline === true ? 'button--outline' : ''}
     `}
     tabindex="0"
+    name={props.text}
+    style={props.style}
     on:click on:mouseover on:mouseenter on:mouseleave on:focus
   >
     {props.text}

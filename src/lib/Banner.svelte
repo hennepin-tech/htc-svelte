@@ -15,7 +15,7 @@
   .banner {
     display: block;
     width: 100%;
-    max-height: 50px;
+    height: 50px;
     margin: 0;
     padding: 0.8rem 1.2rem;
     background-color: var(--orange);
