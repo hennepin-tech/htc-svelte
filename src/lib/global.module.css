@@ -67,6 +67,10 @@ body {
   --dark-red: #C40B14;
 
   /* Grey */
+	--grey-1000: #131212; 
+	--gray-1000: var(--grey-1000);
+	--grey-900: #1b1a1a;
+	--gray-900: var(--grey-900);
   --grey-700: #464646;
   --gray-700: var(--grey-700);
   --grey-500: #646464;
@@ -96,8 +100,26 @@ body {
   --radius: 5px;
 	--corner-shadow:  5px 5px 15px #00000021;
 	--bottom-shadow: 0px 5px 15px #00000021;
+	--side-shadow: 5px 15px 15px #00000021;
 	--focus-border: 2px solid var(--blue);
 	--focus-border-white: 2px solid var(--white);
+
+	/* Theming Colors */
+	--bg-color: var(--white);
+	--bg-accent-color: var(--white);
+	--text-color: var(--black);
+	--accent-color: var(--blue);
+}
+
+body.dark__mode {
+	--bg-color: var(--gray-900);
+	--bg-accent-color: var(--grey-1000);
+	--text-color: var(--white);
+	--accent-color: var(--white);
+	--corner-shadow:  5px 5px 15px #ffffff21;
+	--bottom-shadow: 0px 5px 15px #ffffff21;
+	--side-shadow: 5px 15px 15px #ffffff21;
+	--focus-border: 2px solid var(--white);
 }
 
 * {
@@ -111,16 +133,17 @@ html, body {
 	width: 100%;
 	width: 100vw;
 	overflow-x: hidden;
+	transition: background-color 0.4s ease 0.1s;
 }
 
 body {
-	color: var(--black);
+	color: var(--text-color);
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Din', sans-serif;
 	font-size: 10px;
-	
+	background-color: var(--bg-color);
 }
 
 h1 {
@@ -172,7 +195,7 @@ p {
 }
 
 a {
-	color: var(--blue);
+	color: var(--accent-color);
 	text-decoration: none;
 }
 
@@ -181,11 +204,12 @@ a:hover {
 }
 
 a:visited {
-	color: var(--blue);
+	color: var(--accent-color);
 }
 
 ul {
 	padding-left: 1.2rem;
+	list-style: none;
 }
 
 ol{
@@ -199,7 +223,7 @@ li {
 
 /* reset link color for linkable box elements */
 article > a, article > a:hover, article > a:visited {
-	color: var(--black);
+	color: var(--text-color);
 }
 
 label {
@@ -211,10 +235,15 @@ input, button, select, textarea {
 	font-size: inherit;
 	-webkit-padding: 0.4em 0;
 	padding: 0.4em;
-	margin: 0 0 0.5em 0;
+	margin: 0 0 .8rem 0;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+	border: 1px solid var(--gray-100);
+	border-radius: var(--radius);
+}
+
+input, select {
+	height: 40px;
+	width: 100%;
 }
 
 input:disabled {
@@ -222,8 +251,8 @@ input:disabled {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
+	color: var(--text-color);
+	background-color: transparent;
 	outline: none;
 }
 
@@ -276,6 +305,14 @@ svg {
 
 /* Utils */
 
+/* Layout */
+.container {
+	max-width: 95vw;
+	margin: 0 auto;
+	/* padding: 0 5px */
+}
+
+/* Element Overrides */
 /* block__link */
 .block__link {
 	padding: 5px;
@@ -293,10 +330,29 @@ svg {
 .icon__button { 
 	border-radius: var(--radius);
 	padding: 0; 
-	background-color: unset;
+	background-color: transparent;
+	outline: none;
 	border: none;
+	margin: 0;
 }
 .icon__button:focus {
 	outline: 2px solid var(--white);
 }
 
+@media screen and (min-width: 768px){
+	.container {
+		max-width: 768px;
+	}
+}
+
+@media screen and (min-width: 990px){
+	.container {
+		max-width: 900px;
+	}
+}
+
+@media screen and (min-width: 1400px){
+	.container {
+		max-width: 1180px;
+	}
+}

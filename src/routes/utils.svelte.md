@@ -2,6 +2,33 @@
 
 The following CSS utility classes are bundled with the 'styles' css module available in the library. Initialize the CSS style sheet in your app's ```__layout.svelte``` file to use these classes (and the rest of the library).
 
+
+<section id="block__link">
+<h3> .block__link </h3>
+
+```.block__link``` adds the distinct hover state, which you can see in the sidebar, to ```<a>``` elements. 
+
+```svelte
+<a href="/" class="block__link">Getting Started</a>
+```
+</section>
+
+<hr/>
+
+<section id="container__class">
+<h3> .container </h3>
+
+```.container``` is similar to Bootstrap's container class in that it provides a standard margin. If wrapper elements are not full width, they should have the container class. 
+
+```svelte
+<div class="container">
+  <!-- markup -->
+</div>
+```
+</section>
+
+<hr/>
+
 <section id="icon__button">
 <h3> .icon__button </h3>
 
@@ -15,17 +42,5 @@ The following CSS utility classes are bundled with the 'styles' css module avail
 <button class="icon__button">
   <Search props={{ color: '#000', size: 's', stroke: '2'}}/>  
 </button>
-```
-</section>
-
-<hr/>
-
-<section id="block__link">
-<h3> .block__link </h3>
-
-```.block__link``` adds the distinct hover state, which you can see in the sidebar, to ```<a>``` elements. 
-
-```svelte
-<a href="/" class="block__link">Getting Started</a>
 ```
 </section>
