@@ -1,3 +1,4 @@
+import type { SvelteComponent } from 'svelte/internal'
 
 export interface FooterProps {
   name: string,
@@ -9,7 +10,7 @@ export interface FooterProps {
 export interface FooterSocialItem {
   name: string,
   url: string,
-  icon: string
+  icon?: typeof SvelteComponent | any
 }
 
 export interface FooterQuickLinkItem {

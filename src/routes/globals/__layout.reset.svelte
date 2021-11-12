@@ -1,11 +1,13 @@
 <script lang=ts>
   import Header from '$lib/site/header/Header.svelte'
-  // import Footer from '$lib/site/footer/Footer.svelte'
-  import type { HeaderData, HeaderProps } from '$types/Header'
+  import Footer from '$lib/site/footer/Footer.svelte'
+  import type { HeaderProps } from '$types/Header'
+  import type { FooterProps } from '$types/Footer'
 
-  import data from '../headerData'
+  import headerData from '../headerData'
+  import footerData from '../footerData'
 
-  const headerData:HeaderProps = {
+  const headerProps:HeaderProps = {
     banner: {
       bannerProps: {
         message: 'Masks Required on Campus. Click here for more info!',
@@ -13,8 +15,10 @@
       },
       display: true
     },
-    data: data
+    data: headerData
   }
+
+  const footerProps:FooterProps = footerData
 
   import { innerWidth } from '$lib/stores/innerWidth'
   let localWidth  
@@ -23,14 +27,14 @@
 
 <svelte:window bind:innerWidth={localWidth}/>
 
-
-<Header props={headerData}/>
+<Header props={headerProps}/>
   <main>
     <slot/>
   </main>
-<!-- <Footer /> -->
+<Footer props={footerProps}/>
+
 <style>
-  :global(body) {
+  main {
     min-height: 100vh;
   }
 </style>

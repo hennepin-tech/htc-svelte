@@ -1,7 +1,8 @@
 import Facebook from '../lib/icons/Facebook.svelte'
-   import Twitter from '../lib/icons/Twitter.svelte'
-   import Linkedin from '../lib/icons/Linkedin.svelte'
-   import Youtube from '../lib/icons/Youtube.svelte'
+import Twitter from '../lib/icons/Twitter.svelte'
+import Linkedin from '../lib/icons/Linkedin.svelte'
+import Youtube from '../lib/icons/Youtube.svelte'
+
 export default {
   name: 'Footer',
   social: [
