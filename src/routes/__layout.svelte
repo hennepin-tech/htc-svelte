@@ -5,9 +5,14 @@
   import * as animateScroll from "svelte-scrollto";
   import { innerWidth } from '$lib/stores/innerWidth'
   
-  animateScroll.setGlobalOptions({
-    offset: -100, 
-  })
+  animateScroll.setGlobalOptions({ offset: -100 })
+
+  let darkMode = false
+
+  const toggle = () => {
+    window.document.body.classList.toggle('dark__mode')
+    darkMode = !darkMode
+  }
   
   let localWidth  
   $: innerWidth.set(localWidth)
@@ -22,6 +27,7 @@
 
 <div id="container">
   <aside>
+    <div id="sidebar__inner">
     <ul>
       <li>
         <a class="block__link" href="/">Getting Started</a>
@@ -54,7 +60,13 @@
       <li>
         <ul>
           <li>
-            <a class="block__link" href="/utils/#anchor" use:scrollto={'#icon__button'}>icon__button</a>
+            <a class="block__link" href="/utils/#block__link" use:scrollto={'#block__link'}>block__link</a>
+          </li>
+          <li>
+            <a class="block__link" href="/utils/#container__class" use:scrollto={'#container__class'}>container</a>
+          </li>
+          <li>
+            <a class="block__link" href="/utils/#icon__button" use:scrollto={'#icon__button'}>icon__button</a>
           </li>
         </ul>
       </li>
@@ -78,6 +90,21 @@
       </li>
       {/if}
     </ul>
+
+    <div id="sidebar__footer">
+      <ul>
+        <li>
+          <button on:click={() => toggle() }>{darkMode ? '🌞' : '🌝'}</button>
+        </li>
+        <li>
+          <a class="block__link" href="ttps://github.com/hennepin-tech/htc-svelte">Github</a>
+        </li>
+        <li>
+          <a class="block__link" href="https://github.com/hennepin-tech/htc-svelte/blob/main/LICENSE">GNU License v3.0</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   </aside>
 <div>  
 
@@ -92,17 +119,17 @@
   @import '$lib/global.module.css';
 
   body {
-    --sidebar-bg: var(--white);
+    --sidebar-bg: var(--bg-accent-color);
   }
 
   hr {
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     margin-bottom: 15px;
   }
 
   #globalHeader {
     height: 70px;
-    background-color: var(--white);
+    background-color: var(--bg-accent-color);
     box-shadow: var(--bottom-shadow);
     position: fixed;
     top: 0;
@@ -113,6 +140,7 @@
     align-items: center;
     justify-content: space-between; 
     width: 100%;
+    transition: background-color 0.4s ease 0.1s;
   }
 
   #container {
@@ -134,17 +162,28 @@
   }
 
   aside {
+    transition: background-color 0.4s ease 0.1s;
     overflow-y: scroll;
     scrollbar-color: var(--blue) var(--sidebar-bg);
     background-color: var(--sidebar-bg);
     font-size: 1.2rem;
     min-height: calc(100vh - 70px);
     width: 250px;
-    box-shadow: 5px 15px 15px #00000036;
+    box-shadow: var(--side-shadow);
     position: fixed;
+    top: 70px;
     bottom: 0;
     left: 0;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
+
+  #sidebar__footer {
+    margin-top: 2.5rem;
   }
 
   ul {

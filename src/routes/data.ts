@@ -129,4 +129,30 @@ export const data:SidebarItem[] = [
       }
     ]
   },
+  {
+    anchor: 'actions',
+    id: 3,
+    text: 'Actions',
+    type: 'parent',
+    children: [
+      {
+        anchor: 'inView',
+        description: {
+          text: "inView",
+          snippet: new String(`
+            <script lang=ts>
+              import { inView } from "htc-svelte/actions"
+              let localWidth  
+              $: innerWidth.set(localWidth)
+            </script>
+            
+            <svelte:window bind:innerWidth={localWidth}/>
+          `)
+        },
+        id: 1,
+        text: 'inView',
+        type: 'child',
+      }
+    ]
+  },
 ]
