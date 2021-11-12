@@ -7,7 +7,7 @@
   import Toast, { toggleToast, toastOpen } from '$lib/Toast.svelte'
 
   const iconProps:IconProps = {
-    size: 'm',
+    size: 'l',
     color: '#000',
     stroke: '3'
   }
