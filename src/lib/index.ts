@@ -7,13 +7,20 @@ export { default as Banner } from './Banner.svelte'
 export { default as Button } from './Button.svelte'
 export { default as Callout } from './Callout.svelte'
 export { default as Modal } from './Modal.svelte'
-  export { toggleModal, modalOpen } from './Modal.svelte'
+export { toggleModal, modalOpen } from './Modal.svelte'
+export { default as Tabs } from './Tabs.svelte'
+export { default as Tab } from './Tab.svelte'
+export { default as TabList } from './TabList.svelte'
+export { default as TabPanel } from './TabPanel.svelte'
 export { default as Toast } from './Toast.svelte'
 export { toggleToast, toastOpen } from './Toast.svelte'
 
 // Site Components
 export { default as Header } from './site/header/Header.svelte'
 export { default as Footer } from './site/footer/Footer.svelte'
+
+// Actions
+export { default as inView } from './actions/inView'
 
 // Stores
 export { innerWidth } from './stores/innerWidth'
