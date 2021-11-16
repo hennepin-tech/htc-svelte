@@ -148,7 +148,7 @@
     opacity: 0;
   }
   .sub__nav__button:after {
-    top: 76.5%;
+    top: 21px;
     right: calc(50% - 15px);
     border-bottom: 15px solid transparent;
   }
@@ -184,7 +184,7 @@
     border-bottom: 15px solid var(--white);
     border-left: 15px solid transparent;
     opacity: 100%;
-    top: 12px;
+    top: 11px;
   }
   .sub__nav__open:after {
     animation: slideDownAfter 0.4s linear 0s;
@@ -196,7 +196,7 @@
   .sub__nav__dropdown {
     position: absolute; 
     background-color: var(--gray-700);
-    bottom: -40px;
+    bottom: -41px;
     padding: 0.7rem calc(1rem + 0.4em);
     left: 0;
     border-top: 2px solid var(--white);
