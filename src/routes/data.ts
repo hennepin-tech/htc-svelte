@@ -80,13 +80,13 @@ export const data:SidebarItem[] = [
         text: 'Modal',
         type: 'child',
       },
-      // {
-      //   anchor: 'tabs',
-      //   id: 10,
-      //   renderedComponent: 'Tabs',
-      //   text: 'Tabs',
-      //   type: 'child',
-      // },
+      {
+        anchor: 'tabs',
+        id: 10,
+        renderedComponent: 'Tabs',
+        text: 'Tabs',
+        type: 'child',
+      },
       {
         anchor: 'toast',
         id: 11,

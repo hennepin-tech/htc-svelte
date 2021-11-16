@@ -6,6 +6,10 @@
   import Callout from '$lib/Callout.svelte'
   import Card from '$lib/Card.svelte'
   import Modal, { modalOpen, toggleModal } from '$lib/Modal.svelte'
+  import Tab from '$lib/Tab.svelte'
+  import Tabs from '$lib/Tabs.svelte'
+  import TabList from '$lib/TabList.svelte'
+  import TabPanel from '$lib/TabPanel.svelte'
   import Toast, { toastOpen, toggleToast } from '$lib/Toast.svelte'
   import Tooltip from '$lib/Tooltip.svelte'
 
@@ -18,7 +22,7 @@
   <title>Components</title>
 </svelte:head>
 
-  ## Components
+  # Components
 
   <hr/>
 
@@ -386,6 +390,68 @@
   ```
   </section>
   <!-- Modal end -->
+
+  <hr/>
+
+  <!-- Tabs start -->
+
+  <section id="tabs">
+  
+  <h3>Tabs</h3>
+
+  #### Component
+
+  <Tabs>
+    <TabList>
+      <Tab>one</Tab>
+      <Tab>two</Tab>
+      <Tab>three</Tab>
+    </TabList>
+
+    <TabPanel>
+      <h2>First panel</h2>
+    </TabPanel>
+
+    <TabPanel>
+      <h2>Second panel</h2>
+    </TabPanel>
+
+    <TabPanel>
+      <h2>Third panel</h2>
+    </TabPanel>
+  </Tabs>
+
+  #### Usage
+
+  ```svelte
+  <script>
+    import { Tab, Tabs, TabList, TabPanel  } from '@hennepin-tech/htc-svelte'
+  </script>
+
+  <Tabs>
+    <TabList>
+      <Tab>one</Tab>
+      <Tab>two</Tab>
+      <Tab>three</Tab>
+    </TabList>
+
+    <TabPanel>
+      <h2>First panel</h2>
+    </TabPanel>
+
+    <TabPanel>
+      <h2>Second panel</h2>
+    </TabPanel>
+
+    <TabPanel>
+      <h2>Third panel</h2>
+    </TabPanel>
+  </Tabs>
+  ```
+
+  </section>
+
+  <!-- Tabs end -->
 
   <hr/>
 
