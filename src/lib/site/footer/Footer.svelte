@@ -1,28 +1,34 @@
-<script lang=ts context=module>
-   // import Facebook from '../../icons/Facebook.svelte'
-   // import Twitter from '../../icons/Twitter.svelte'
-   // import Linkedin from '../../icons/Linkedin.svelte'
-   // import Youtube from '../../icons/Youtube.svelte'
-</script>
 <script lang=ts>
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
    import type { FooterProps } from '$types/Footer'
    
+   import { programs, years, states } from './parts/rfiData'
    import ArrowR from '$lib/icons/Arrow-r.svelte'
    import Button from '$lib/Button.svelte'
 
    import inView from '../../actions/inView'
    
-   let stuck = true
-   let formOpen = false
+   let stuck:boolean = true
+   let formOpen:boolean = true
+   let formSlideOne:boolean = true
+   let formSlideTwo:boolean = false
 
-   let footerHeight
+   const formNext = () => {
+      formSlideOne = false;
+      formSlideTwo = true;
+   }
+
+   const formPrev = () => {
+      formSlideOne = true;
+      formSlideTwo = false;
+   }
+
+   let footerHeight:number
 
    export let props:FooterProps 
 </script>
-
 <div 
    class:stuck 
    class="footer__sub" 
@@ -61,27 +67,106 @@
    <!-- Global RFI Form -->
       {#if formOpen}
       <div id="rfi" transition:slide={{delay: 40, duration: 300, easing: quintOut }}>
-         <form action="" method="post" class=" rfi__form container">
-            <div style="grid-area: col1;">
-               <input type="text" name="" id="">
-               <input type="text" name="" id="">
-               <input type="text" name="" id="">
+         <form action="" method="post" class="rfi__form container">
+            <!-- Form Panel 1 -->
+            <div class="rfi__panel" id="rfi__panel__1" class:visible__panel={formSlideOne}>
+               <div style="grid-area: col1;" >
+                  <input id="first_name" name="first_name" placeholder="* First Name" required={true}>
+                  <input id="last_name" name="last_name" placeholder="* Last Name" required={true}>
+                  <input id="email" name="email" placeholder="* Email" required={true}>
+               </div>
+               <div style="grid-area: col2;">
+                  <input id="phone" name="phone" placeholder="* (___)-___-____" required={true}>
+                  <select aria-label="Student Type" id="student_type" name="student_type" required={true}>
+                     <option value="">* Student Type</option>
+                     <option value="First Semester/First Year">First Semester/First Year</option>
+                     <option value="Transfer Student">Transfer Student</option>
+                     <option value="Returning Student">Returning Student</option>
+                     <option value="PSEO">PSEO</option>
+                     <option value="International">International</option>
+                  </select>
+                  <select aria-label="Program of Interest" id="program_interest" name="program_interest" placeholder="Program of Interest" required={true}>
+                     <option value="">* Program of Interest</option>
+                     {#each programs as {name}}
+                        <option value={name}>{name}</option>
+                     {/each}
+                  </select>
+               </div>
             </div>
-            <div style="grid-area: col2;">
-               <input type="text" name="" id="">
-               <select></select>
-               <select></select>
+
+            <!-- Form Panel 2 -->
+            <div class="rfi__panel" id="rfi__panel__2" class:visible__panel={formSlideTwo}>
+               <div style="grid-area: col1;" >
+                  <input id="street_address" name="street_address" placeholder="Street Address" >
+						<input id="city" name="city" placeholder="City" >
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                     <select id="state" name="state" placeholder="State" >
+                        <option value="">State</option>
+                        {#each states as s }
+                           <option value={s}>{s}</option>
+                        {/each}
+                     </select>
+                     <input id="zip_code" name="zip_code" placeholder="Zip Code" >
+                  </div>
+               </div>
+               <div style="grid-area: col2;">
+                  <input id="high_school" name="high_school" placeholder="*High School Name" required={true}>
+						<select id="high_school_grad_year" name="high_school_grad_year" placeholder="High School Grad Year">
+							<option value="">High School Grad Year</option>
+                     {#each years as y}
+						      <option value={y}>{y}</option>
+                     {/each}
+                  </select>
+						<select id="geofence" name="geofence" placeholder="How did you hear about us?">
+							<option value="">How did you hear about us?</option>
+						    <option value="Web search">Web search</option>
+						    <option value="Social Media or Digital Ad">Social Media or Digital Ad</option>
+						    <option value="Radio or TV Ad">Radio or TV Ad</option>
+						    <option value="Billboard">Billboard</option>
+						    <option value="Local paper advertisement">Local paper advertisement</option>
+						    <option value="Friend or relative">Friend or relative</option>
+						    <option value="Other">Other</option>
+						</select>
+               </div>
             </div>
-            <Button 
-               props={{
-                  behavior: 'button',
-                  size: 'm',
-                  text: 'Submit',
-                  type: 'primary',
-                  submit: true,
-                  style: 'grid-area: submit; justify-self: end;'
-               }}
-            />
+            <div class="rfi__button__container">
+               {#if formSlideOne}
+               <Button 
+                  props={{
+                     behavior: 'button',
+                     size: 'm',
+                     text: 'Next',
+                     type: 'primary',
+                     submit: false,
+                     style: 'grid-area: submit; justify-self: end; margin-right: 0;'
+                  }}
+                  on:click={formNext}
+               />
+               {:else if formSlideTwo}
+               
+               <Button 
+                  props={{
+                     behavior: 'button',
+                     size: 'm',
+                     text: 'Submit',
+                     type: 'primary',
+                     submit: true,
+                     style: 'justify-self: end; margin-right: 0;'
+                  }}
+               />
+               <Button 
+                  props={{
+                     behavior: 'button',
+                     size: 'm',
+                     text: 'Back',
+                     type: 'primary',
+                     submit: false,
+                     style: 'grid-area: submit; justify-self: end; margin-left: 0;'
+                  }}
+                  on:click={formPrev}
+               />
+               {/if}
+            </div>
          </form>
       </div>
       {/if}
@@ -182,14 +267,29 @@
    }
 
    .rfi__form {
+      width: 45%;
+      max-width: 90vw;
+      margin: auto;
+   }
+
+   .rfi__panel {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       grid-template-areas: "col1 col2" "submit submit";
-      gap: 0 30px;
-      width: 45%;
-      max-width: 90vw;
-      margin: auto;
+      gap: 0 30px; 
+      display: none; 
+      transition: display 2s ease-in-out 0s;
+   }
+
+   .visible__panel {
+      display: grid;
+   }
+
+   .rfi__button__container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
    }
 
    #rfi__trigger {
@@ -286,7 +386,6 @@
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto;
       gap: 2rem;
-      /* justify-content: space-between; */
    }
 
    .footer__2__1 {
