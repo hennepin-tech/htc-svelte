@@ -116,7 +116,7 @@
 </div>
 
 <style global>
-  @import '$lib/global.module.css';
+  @import '$lib/base.css';
 
   body {
     --sidebar-bg: var(--bg-accent-color);
