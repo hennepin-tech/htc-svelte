@@ -21,7 +21,8 @@ Then initialize the global ```innerWidth``` store, and add the global style shee
 ```svelte
 <!-- __layout.svelte -->
 <script>
-  import { innerWidth, styles } from '@hennepin-tech/htc-svelte'
+  import '@hennepin-tech/htc-svelte/base.css'
+  import { innerWidth } from '@hennepin-tech/htc-svelte'
 
   let localWidth
   $: innerWidth.set(localWidth)
@@ -31,8 +32,7 @@ Then initialize the global ```innerWidth``` store, and add the global style shee
 
 <!-- your layout here -->
 
-<style global={styles}>
-</style>
+<style></style>
 ```
 
 Then use a component!
