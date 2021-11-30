@@ -11,7 +11,7 @@
    import inView from '../../actions/inView'
    
    let stuck:boolean = true
-   let formOpen:boolean = true
+   let formOpen:boolean = false
    let formSlideOne:boolean = true
    let formSlideTwo:boolean = false
 
