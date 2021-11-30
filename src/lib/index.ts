@@ -1,6 +1,3 @@
-// Global Styles
-export { default as styles } from './global.module.css'
-
 // Components
 export { default as Accordion } from './Accordion.svelte'
 export { default as Banner } from './Banner.svelte'
