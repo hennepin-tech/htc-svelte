@@ -12,8 +12,10 @@
 </script>
 
 <article class="card">
-  <a href="/">
-    <img class="card__image" src={props.image} alt={props.imageAlt}> 
+  <a href={props.path}>
+    <div class="card__image__wrap">
+      <img class="card__image" src={props.image} alt={props.imageAlt}> 
+    </div>
     <header class="card__header"><h2 class="card__title">{props.title}</h2> 
       {#if props.date}
         <span class="card__pub-date">{props?.date}</span> 
@@ -30,13 +32,19 @@
     max-width: 350px;
     border-radius: 5px;
     box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.438);
-    margin: auto;
+    margin: 1rem auto;
   }
   .card > a:hover {
     text-decoration: unset;
   }
   .card:hover .card__title {
     text-decoration: underline;
+  }
+  .card__image__wrap {
+    max-width: 100%;
+    height: 180px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
   }
   .card__image {
     max-width: 100%;
@@ -46,7 +54,7 @@
     padding: 0.75rem 1.2rem;
   }
   .card__title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin: 0.5rem auto;
   }
   .card__pub-date {
@@ -57,7 +65,7 @@
   }
   .card__description {
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .card__description:hover {
     text-decoration: unset;
