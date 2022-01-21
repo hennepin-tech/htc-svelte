@@ -1,3 +1,4 @@
+import path from 'path';
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
@@ -15,6 +16,13 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		adapter: adapter(),
+		vite: {
+			resolve: {
+				alias: {
+					'@hennepin-tech/htc-svelte': path.resolve('src/lib')
+				}
+			},
+		}
 	}
 };
 
